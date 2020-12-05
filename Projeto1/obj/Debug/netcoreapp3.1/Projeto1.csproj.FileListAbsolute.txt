@@ -2,3 +2,12 @@ C:\Users\User\Documents\Universidade IPCA\Paradigmas de Programação\Projeto PP
 C:\Users\User\Documents\Universidade IPCA\Paradigmas de Programação\Projeto PP1\Projeto1\obj\Debug\netcoreapp3.1\Projeto1.AssemblyInfoInputs.cache
 C:\Users\User\Documents\Universidade IPCA\Paradigmas de Programação\Projeto PP1\Projeto1\obj\Debug\netcoreapp3.1\Projeto1.AssemblyInfo.cs
 C:\Users\User\Documents\Universidade IPCA\Paradigmas de Programação\Projeto PP1\Projeto1\obj\Debug\netcoreapp3.1\Projeto1.csproj.CoreCompileInputs.cache
+C:\Users\User\Documents\Universidade IPCA\Paradigmas de Programação\Projeto PP1\Projeto1\bin\Debug\netcoreapp3.1\Projeto1.exe
+C:\Users\User\Documents\Universidade IPCA\Paradigmas de Programação\Projeto PP1\Projeto1\bin\Debug\netcoreapp3.1\Projeto1.deps.json
+C:\Users\User\Documents\Universidade IPCA\Paradigmas de Programação\Projeto PP1\Projeto1\bin\Debug\netcoreapp3.1\Projeto1.runtimeconfig.json
+C:\Users\User\Documents\Universidade IPCA\Paradigmas de Programação\Projeto PP1\Projeto1\bin\Debug\netcoreapp3.1\Projeto1.runtimeconfig.dev.json
+C:\Users\User\Documents\Universidade IPCA\Paradigmas de Programação\Projeto PP1\Projeto1\bin\Debug\netcoreapp3.1\Projeto1.dll
+C:\Users\User\Documents\Universidade IPCA\Paradigmas de Programação\Projeto PP1\Projeto1\bin\Debug\netcoreapp3.1\Projeto1.pdb
+C:\Users\User\Documents\Universidade IPCA\Paradigmas de Programação\Projeto PP1\Projeto1\obj\Debug\netcoreapp3.1\Projeto1.dll
+C:\Users\User\Documents\Universidade IPCA\Paradigmas de Programação\Projeto PP1\Projeto1\obj\Debug\netcoreapp3.1\Projeto1.pdb
+C:\Users\User\Documents\Universidade IPCA\Paradigmas de Programação\Projeto PP1\Projeto1\obj\Debug\netcoreapp3.1\Projeto1.genruntimeconfig.cache

@@ -8,7 +8,10 @@ namespace Projeto1
 		{
 			// Read each line of the file into a string array. Each element of the array is one line of the file.
 			//encontrado num documento da microsoft e feito o glorioso copy-paste
-			string[] lines = System.IO.File.ReadAllLines(@"C:\Users\Public\TestFolder\Ficheiro_que_o_prof_vai_mandar.txt");
+			//string[] lines = System.IO.File.ReadAllLines(@"C:\Users\Public\TestFolder\Ficheiro_que_o_prof_vai_mandar.txt");
+
+
+			Console.WriteLine("TESTE");
 
 			/* 
 			exemplo de ficheiro de testo e consequentemente do array de strings - lines
