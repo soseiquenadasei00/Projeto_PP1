@@ -1,8 +1,11 @@
 ﻿using System;
 
-public class Etapas
+namespace Projeto1
 {
-	public Etapas()
+	public class Etapas
 	{
+		public Etapas()
+		{
+		}
 	}
 }

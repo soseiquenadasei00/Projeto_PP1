@@ -1,8 +1,12 @@
 ﻿using System;
 
-public class Provas
+
+namespace Projeto1
 {
-	public Provas()
+	public class Provas
 	{
+		public Provas()
+		{
+		}
 	}
 }

@@ -2,7 +2,7 @@
 using System.Collections;
 
 
-namespace trabalho_PP1
+namespace Projeto1
 {
 
     public class Concorrente
@@ -32,5 +32,4 @@ namespace trabalho_PP1
     {
 
     }
-}
 }
