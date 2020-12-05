@@ -24,7 +24,7 @@ namespace Projeto1
 
 
 			//sera que conseguimos transformar esses elementos da primeira string(que é uma linha toda) numa string normal(1 elemento = 1 caracter) assim?
-			string informacoes = (string)string[] lines;
+			//string informacoes = (string)string[] lines;
 
 		}
 	}
