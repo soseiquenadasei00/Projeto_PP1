@@ -24,7 +24,10 @@ namespace Projeto1
             this.carro = carro;
         }
 
-
+        public int nParticipante (int n)
+        {
+            return (n = numero);
+        }
 
     }
     
