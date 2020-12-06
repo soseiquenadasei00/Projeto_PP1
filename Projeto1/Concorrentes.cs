@@ -10,7 +10,7 @@ namespace Projeto1
 
         // Variaveis
         public int numero; // Numero do participante
-        public int quantidade; // Quantaide de participantes
+        public int quantidade; // Quantidade de participantes
         public string nome; // Nome do participante
         public string carro; // Carro do participante
 
