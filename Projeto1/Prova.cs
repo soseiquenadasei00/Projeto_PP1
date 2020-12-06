@@ -7,6 +7,8 @@ namespace Projeto1
 	{
 
 
+		
+
 		// Variaveis
 		public int posicao;
 
