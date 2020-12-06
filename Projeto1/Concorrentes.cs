@@ -9,10 +9,10 @@ namespace Projeto1
     {
 
         // Variaveis
-        public int numero;
-        public int quantidade;
-        public string nome;
-        public string carro;
+        public int numero; // Numero do participante
+        public int quantidade; // Quantaide de participantes
+        public string nome; // Nome do participante
+        public string carro; // Carro do participante
 
 
         //Construtor
@@ -24,11 +24,27 @@ namespace Projeto1
             this.carro = carro;
         }
 
-        public int nParticipante (int n)
+
+        //Instancias
+        public int nParticipante (int n) // devolve o numero do participante
         {
             return (n = numero);
         }
 
+        public int nquant (int qt) // Devolve a quantidade de participantes 
+        {
+            return (qt = quantidade);
+        }
+        
+        public string nomePart (string nm) // Devolve o nome do participante 
+        {
+            return (nm = nome);
+        }
+
+        public string ncarro (string car) // Devolve o nome do carro
+        {
+            return (car = carro);
+        }
     }
     
 }
