@@ -5,7 +5,7 @@ namespace Projeto1
 	public class Etapas
 	{
 		// Variaveis
-		public int numeroEtapas; // Quantatidade de etapas 
+		public int numeroEtapas; // Quantidade de etapas 
 		public double tempoEtapa;    // Tempo de cada etapa 
 		public int numeroTotalEtapas; //Numero total de etapas 
 		public double tempoTotal;    // Tempo total ( soma dos tempos das etapas)
@@ -23,11 +23,15 @@ namespace Projeto1
 
 		//Instancias
 		public double CalcularTempototal (int nEtapas, double tEtapas)
-			{
+			{				
 			double tptotal;
 			tptotal = (nEtapas * tEtapas);
 			return (tptotal);   
 			}
+		/* este nao deve funcionar porque o tempo de cada etapa vai ser diferente, ou seja, o tempo total sera a soma de cada uma das etapas,
+		 * e não uma etapa * nEtapas.
+		 * talvez pudessemos fazer uma SortedList para as etapas? nome da etapa como chave tempo como valor? mas como o tempo é para cada participante, não tenho a certeza se funcionaria
+		 */
 		
 	}
 }
