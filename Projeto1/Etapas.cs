@@ -5,10 +5,10 @@ namespace Projeto1
 	public class Etapas
 	{
 		// Variaveis
-		public int numeroEtapas; // Quantidade de etapas 
+		public int numeroEtapas; // Quantatidade de etapas 
 		public double tempoEtapa;    // Tempo de cada etapa 
 		public int numeroTotalEtapas; //Numero total de etapas 
-		public double tempoTotal;    // Tempo total ( soma dos tempos das etapas)
+		public double tempoTotal;     // Tempo total ( soma dos tempos das etapas)
 		
 
 		// construtor 
@@ -23,7 +23,7 @@ namespace Projeto1
 
 		//Instancias
 		public double CalcularTempototal (int nEtapas, double tEtapas)
-			{				
+			{
 			double tptotal;
 			tptotal = (nEtapas * tEtapas);
 			return (tptotal);   
