@@ -1,20 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\EduardoCacciariMiral\\Source\\Repos\\trabalhopp1\\Projeto1\\Projeto1.csproj": {}
+    "C:\\Users\\joaos\\Source\\Repos\\soseiquenadasei00\\Projeto_PP1\\Projeto1\\Projeto1.csproj": {}
   },
   "projects": {
-    "C:\\Users\\EduardoCacciariMiral\\Source\\Repos\\trabalhopp1\\Projeto1\\Projeto1.csproj": {
+    "C:\\Users\\joaos\\Source\\Repos\\soseiquenadasei00\\Projeto_PP1\\Projeto1\\Projeto1.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\EduardoCacciariMiral\\Source\\Repos\\trabalhopp1\\Projeto1\\Projeto1.csproj",
+        "projectUniqueName": "C:\\Users\\joaos\\Source\\Repos\\soseiquenadasei00\\Projeto_PP1\\Projeto1\\Projeto1.csproj",
         "projectName": "Projeto1",
-        "projectPath": "C:\\Users\\EduardoCacciariMiral\\Source\\Repos\\trabalhopp1\\Projeto1\\Projeto1.csproj",
-        "packagesPath": "C:\\Users\\EduardoCacciariMiral\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\EduardoCacciariMiral\\Source\\Repos\\trabalhopp1\\Projeto1\\obj\\",
+        "projectPath": "C:\\Users\\joaos\\Source\\Repos\\soseiquenadasei00\\Projeto_PP1\\Projeto1\\Projeto1.csproj",
+        "packagesPath": "C:\\Users\\joaos\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\joaos\\Source\\Repos\\soseiquenadasei00\\Projeto_PP1\\Projeto1\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
         "configFilePaths": [
-          "C:\\Users\\EduardoCacciariMiral\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\joaos\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [

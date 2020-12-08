@@ -11,3 +11,16 @@ C:\Users\User\Documents\Universidade IPCA\Paradigmas de Programação\Projeto PP
 C:\Users\User\Documents\Universidade IPCA\Paradigmas de Programação\Projeto PP1\Projeto1\obj\Debug\netcoreapp3.1\Projeto1.dll
 C:\Users\User\Documents\Universidade IPCA\Paradigmas de Programação\Projeto PP1\Projeto1\obj\Debug\netcoreapp3.1\Projeto1.pdb
 C:\Users\User\Documents\Universidade IPCA\Paradigmas de Programação\Projeto PP1\Projeto1\obj\Debug\netcoreapp3.1\Projeto1.genruntimeconfig.cache
+C:\Users\joaos\Source\Repos\soseiquenadasei00\Projeto_PP1\Projeto1\bin\Debug\netcoreapp3.1\Projeto1.exe
+C:\Users\joaos\Source\Repos\soseiquenadasei00\Projeto_PP1\Projeto1\bin\Debug\netcoreapp3.1\Projeto1.deps.json
+C:\Users\joaos\Source\Repos\soseiquenadasei00\Projeto_PP1\Projeto1\bin\Debug\netcoreapp3.1\Projeto1.runtimeconfig.json
+C:\Users\joaos\Source\Repos\soseiquenadasei00\Projeto_PP1\Projeto1\bin\Debug\netcoreapp3.1\Projeto1.runtimeconfig.dev.json
+C:\Users\joaos\Source\Repos\soseiquenadasei00\Projeto_PP1\Projeto1\bin\Debug\netcoreapp3.1\Projeto1.dll
+C:\Users\joaos\Source\Repos\soseiquenadasei00\Projeto_PP1\Projeto1\bin\Debug\netcoreapp3.1\Projeto1.pdb
+C:\Users\joaos\Source\Repos\soseiquenadasei00\Projeto_PP1\Projeto1\obj\Debug\netcoreapp3.1\Projeto1.csprojAssemblyReference.cache
+C:\Users\joaos\Source\Repos\soseiquenadasei00\Projeto_PP1\Projeto1\obj\Debug\netcoreapp3.1\Projeto1.AssemblyInfoInputs.cache
+C:\Users\joaos\Source\Repos\soseiquenadasei00\Projeto_PP1\Projeto1\obj\Debug\netcoreapp3.1\Projeto1.AssemblyInfo.cs
+C:\Users\joaos\Source\Repos\soseiquenadasei00\Projeto_PP1\Projeto1\obj\Debug\netcoreapp3.1\Projeto1.csproj.CoreCompileInputs.cache
+C:\Users\joaos\Source\Repos\soseiquenadasei00\Projeto_PP1\Projeto1\obj\Debug\netcoreapp3.1\Projeto1.dll
+C:\Users\joaos\Source\Repos\soseiquenadasei00\Projeto_PP1\Projeto1\obj\Debug\netcoreapp3.1\Projeto1.pdb
+C:\Users\joaos\Source\Repos\soseiquenadasei00\Projeto_PP1\Projeto1\obj\Debug\netcoreapp3.1\Projeto1.genruntimeconfig.cache
