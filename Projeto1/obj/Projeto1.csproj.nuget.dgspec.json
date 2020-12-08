@@ -1,20 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\User\\Documents\\Universidade IPCA\\Paradigmas de Programação\\Projeto PP1\\Projeto1\\Projeto1.csproj": {}
+    "C:\\Users\\joaos\\Source\\Repos\\soseiquenadasei00\\Projeto_PP1\\Projeto1\\Projeto1.csproj": {}
   },
   "projects": {
-    "C:\\Users\\User\\Documents\\Universidade IPCA\\Paradigmas de Programação\\Projeto PP1\\Projeto1\\Projeto1.csproj": {
+    "C:\\Users\\joaos\\Source\\Repos\\soseiquenadasei00\\Projeto_PP1\\Projeto1\\Projeto1.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\User\\Documents\\Universidade IPCA\\Paradigmas de Programação\\Projeto PP1\\Projeto1\\Projeto1.csproj",
+        "projectUniqueName": "C:\\Users\\joaos\\Source\\Repos\\soseiquenadasei00\\Projeto_PP1\\Projeto1\\Projeto1.csproj",
         "projectName": "Projeto1",
-        "projectPath": "C:\\Users\\User\\Documents\\Universidade IPCA\\Paradigmas de Programação\\Projeto PP1\\Projeto1\\Projeto1.csproj",
-        "packagesPath": "C:\\Users\\User\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\User\\Documents\\Universidade IPCA\\Paradigmas de Programação\\Projeto PP1\\Projeto1\\obj\\",
+        "projectPath": "C:\\Users\\joaos\\Source\\Repos\\soseiquenadasei00\\Projeto_PP1\\Projeto1\\Projeto1.csproj",
+        "packagesPath": "C:\\Users\\joaos\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\joaos\\Source\\Repos\\soseiquenadasei00\\Projeto_PP1\\Projeto1\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
         "configFilePaths": [
-          "C:\\Users\\User\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\joaos\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -26,6 +29,7 @@
         },
         "frameworks": {
           "netcoreapp3.1": {
+            "targetAlias": "netcoreapp3.1",
             "projectReferences": {}
           }
         },
@@ -37,6 +41,7 @@
       },
       "frameworks": {
         "netcoreapp3.1": {
+          "targetAlias": "netcoreapp3.1",
           "imports": [
             "net461",
             "net462",
@@ -52,7 +57,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.403\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.100\\RuntimeIdentifierGraph.json"
         }
       }
     }
