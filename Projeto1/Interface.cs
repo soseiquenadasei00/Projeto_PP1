@@ -6,5 +6,7 @@ namespace Projeto1
 {
     class Interface
     {
+        /*
+         */
     }
 }
