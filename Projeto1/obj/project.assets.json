@@ -14,11 +14,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\joaos\\Source\\Repos\\soseiquenadasei00\\Projeto_PP1\\Projeto1\\Projeto1.csproj",
+      "projectUniqueName": "C:\\Users\\joaos\\Source\\Repos\\Projeto_PP1\\Projeto1\\Projeto1.csproj",
       "projectName": "Projeto1",
-      "projectPath": "C:\\Users\\joaos\\Source\\Repos\\soseiquenadasei00\\Projeto_PP1\\Projeto1\\Projeto1.csproj",
+      "projectPath": "C:\\Users\\joaos\\Source\\Repos\\Projeto_PP1\\Projeto1\\Projeto1.csproj",
       "packagesPath": "C:\\Users\\joaos\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\joaos\\Source\\Repos\\soseiquenadasei00\\Projeto_PP1\\Projeto1\\obj\\",
+      "outputPath": "C:\\Users\\joaos\\Source\\Repos\\Projeto_PP1\\Projeto1\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"

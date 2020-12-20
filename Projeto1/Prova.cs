@@ -11,6 +11,7 @@ namespace Projeto1
 
 		// Variaveis
 		public int posicao;
+		
 
 
 		//public bool ProvaValida(Concorrente c); 
