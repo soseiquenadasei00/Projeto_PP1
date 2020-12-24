@@ -21,7 +21,7 @@ namespace Projeto1
 
 
 
-
+		//Aux, testa se um concorrente c tem prova valida
 		public bool ConcorrenteComProvaValida(int concorrenteID)
         {
 			foreach (Etapa e in etapasDaProva.Values)
@@ -53,8 +53,10 @@ namespace Projeto1
 			return soma;
 		}
 
-		//Alinea 3 - Lista com todos concorrentes que efetuaram uma prova valida. So chamar a funcao com .count. 
-		// Retorna uma lista com todos concorrentes c, tais que c passou por todas as etapas
+		//Alinea 3 - Lista ordenada em ordem descrescente com todos concorrentes que efetuaram uma prova valida. 
+		//Para pegar o numero de concorrentes -- chamar a funcao com .count. 
+		
+		//falta garantir a ordem. talvez?
 		public SortedList<int,int> ProvaValidaPor()
         {
 			SortedList<int,int> aux = new SortedList<int,int>();

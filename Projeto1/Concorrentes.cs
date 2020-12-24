@@ -12,12 +12,11 @@ namespace Projeto1
         public int concorrenteID; 
         public string nome; 
         public string carro; 
-        public string[] etapa_realizada; //Atribuir as etapas realizadas, aquando a leitura do ficheiro. (Exemplo 2 E1 E2) ????????????
         public int posicaoFinal;
-        public int tempoTotalDaProva;
+
+
 
         //Construtor
-
         public Concorrente(int numero, string nome, string carro)
         {
             this.concorrenteID = numero;
