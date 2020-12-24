@@ -18,16 +18,19 @@ namespace Projeto1
         {
             //Leitura do ficheiro do texto para criar os Concorrentes
             List<string> lista_concorrentes = new List<string>();
-            using (StreamReader reader = new StreamReader("concorrentes.txt"))
+            using (StreamReader reader = new StreamReader("concorrentesteste.txt"))
             {
 
                 string line = "";
 
                 while (!String.IsNullOrEmpty(line = reader.ReadLine()))
                 {
+                 
                     lista_concorrentes.Add(line);
 
                 }
+
+
 
                 // Imprimir ficheiro na consola
                 foreach (var item in lista_concorrentes)
@@ -40,10 +43,12 @@ namespace Projeto1
 
         }
 
+
+        /*
         //Metodo para verificar os dados da lista_concorrentes e atribui-los aos respetivos dicionarios
         public static void VerificaDados(List<string> lista_concorrentes)
         {
-             using (StreamReader reader = new StreamReader("concorrentes.txt"))
+             using (StreamReader reader = new StreamReader("concorrentesteste.txt"))
             {
                 string line = "";
 
@@ -55,6 +60,7 @@ namespace Projeto1
 
             } 
         }
+        */
 
        
 
