@@ -1,24 +1,56 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace Projeto1
 {
-	public class Etapas
+	public class Etapa
 	{
-		// Variaveis
-		public int numeroEtapas; // Quantidade de etapas 
-		public double tempoEtapa;    // Tempo de cada etapa 
-		public int numeroTotalEtapas; //Numero total de etapas 
-		public double tempoTotal;    // Tempo total ( soma dos tempos das etapas)
 		
+		
+		//Para o ficheiro:
+		//2 E1 E2 21672
+		//1 P E1 10501
+		//1 E1 E2 37203
+		//2 P E1 12383
+		//1 E2 C 28465
+		//2 E2 C 23567
+		//A etapda E1-E2, o dicionario tempos sera igual: 
+		//new Dictionary<int,int>().Insert(2, 21672).Insert(1, 37203);
+		public Dictionary<int, int> tempos;
+
+
+		private int distancia;
 
 		// construtor 
-
-		public Etapas( int nEtapas, double tEtapa, double tTotal) 
+		public Etapa() 
         {
-			this.numeroEtapas = nEtapas;
-			this.tempoEtapa = tEtapa;
-			this.tempoTotal = tTotal;
+			distancia = 0;
+			tempos = new Dictionary<int, int>();
         }
+
+
+		//Metodos
+		public void SetDistancia(int n)
+        {
+			distancia = n;
+        }
+
+		public float TempoMedio()
+        {
+			int soma = 0;
+			foreach (int tempo in tempos.Values)
+            {
+				soma += tempo;
+            }
+
+			return (soma / tempos.Count);
+        }
+
+		public bool ConcorrenteParticipou(int concorrenteID)
+        {
+			return tempos.ContainsKey(concorrenteID);		
+        }
+
 
 
 		//Instancias

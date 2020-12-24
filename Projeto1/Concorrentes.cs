@@ -14,6 +14,7 @@ namespace Projeto1
         public string nome; // Nome do participante
         public string carro; // Carro do participante
         public string[] etapa_realizada; //Atribuir as etapas realizadas, aquando a leitura do ficheiro. (Exemplo 2 E1 E2)
+        public int posicaoFinal;
 
         //teste
 

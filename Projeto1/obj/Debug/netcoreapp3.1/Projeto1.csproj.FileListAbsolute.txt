@@ -37,3 +37,16 @@ C:\Users\joaos\source\repos\Projeto_PP1\Projeto1\obj\Debug\netcoreapp3.1\Projeto
 C:\Users\joaos\source\repos\Projeto_PP1\Projeto1\obj\Debug\netcoreapp3.1\Projeto1.dll
 C:\Users\joaos\source\repos\Projeto_PP1\Projeto1\obj\Debug\netcoreapp3.1\Projeto1.pdb
 C:\Users\joaos\source\repos\Projeto_PP1\Projeto1\obj\Debug\netcoreapp3.1\Projeto1.genruntimeconfig.cache
+C:\Users\EduardoCacciariMiral\Source\Repos\Projeto_PP1\Projeto1\obj\Debug\netcoreapp3.1\Projeto1.csprojAssemblyReference.cache
+C:\Users\EduardoCacciariMiral\Source\Repos\Projeto_PP1\Projeto1\obj\Debug\netcoreapp3.1\Projeto1.AssemblyInfoInputs.cache
+C:\Users\EduardoCacciariMiral\Source\Repos\Projeto_PP1\Projeto1\obj\Debug\netcoreapp3.1\Projeto1.AssemblyInfo.cs
+C:\Users\EduardoCacciariMiral\Source\Repos\Projeto_PP1\Projeto1\obj\Debug\netcoreapp3.1\Projeto1.csproj.CoreCompileInputs.cache
+C:\Users\EduardoCacciariMiral\Source\Repos\Projeto_PP1\Projeto1\obj\Debug\netcoreapp3.1\Projeto1.dll
+C:\Users\EduardoCacciariMiral\Source\Repos\Projeto_PP1\Projeto1\obj\Debug\netcoreapp3.1\Projeto1.pdb
+C:\Users\EduardoCacciariMiral\Source\Repos\Projeto_PP1\Projeto1\bin\Debug\netcoreapp3.1\Projeto1.exe
+C:\Users\EduardoCacciariMiral\Source\Repos\Projeto_PP1\Projeto1\bin\Debug\netcoreapp3.1\Projeto1.deps.json
+C:\Users\EduardoCacciariMiral\Source\Repos\Projeto_PP1\Projeto1\bin\Debug\netcoreapp3.1\Projeto1.runtimeconfig.json
+C:\Users\EduardoCacciariMiral\Source\Repos\Projeto_PP1\Projeto1\bin\Debug\netcoreapp3.1\Projeto1.runtimeconfig.dev.json
+C:\Users\EduardoCacciariMiral\Source\Repos\Projeto_PP1\Projeto1\bin\Debug\netcoreapp3.1\Projeto1.dll
+C:\Users\EduardoCacciariMiral\Source\Repos\Projeto_PP1\Projeto1\bin\Debug\netcoreapp3.1\Projeto1.pdb
+C:\Users\EduardoCacciariMiral\Source\Repos\Projeto_PP1\Projeto1\obj\Debug\netcoreapp3.1\Projeto1.genruntimeconfig.cache

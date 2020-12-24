@@ -12,7 +12,7 @@ namespace Projeto1
 
 
 			Console.WriteLine("TESTE");
-			Interface.Concorrentes();
+			Interface.InicializaConcorrentes();
 
 			/* 
 			exemplo de ficheiro de testo e consequentemente do array de strings - lines

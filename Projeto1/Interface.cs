@@ -9,17 +9,16 @@ namespace Projeto1
     {
 
 
-        private Dictionary<int, Concorrente> concorrentes_dic;
-        private Dictionary<int, Etapas> etapas_dic;
+        
         private Dictionary<int, Provas> provas_dic;
 
 
         //Metodo para criar os dados da classe Concorrente
-        public static void Concorrentes()
+        public static void InicializaConcorrentes()
         {
             //Leitura do ficheiro do texto para criar os Concorrentes
             List<string> lista_concorrentes = new List<string>();
-            using (StreamReader reader = new StreamReader("concorrentes.txt"))
+            using (StreamReader reader = new StreamReader("Concorrentes.txt"))
             {
 
                 string line = "";
@@ -44,17 +43,17 @@ namespace Projeto1
         //Metodo para verificar os dados da lista_concorrentes e atribui-los aos respetivos dicionarios
         public static void VerificaDados(List<string> lista_concorrentes)
         {
-            using (StreamReader reader = new StreamReader("concorrentes.txt"))
+            /* using (StreamReader reader = new StreamReader("concorrentes.txt"))
             {
                 string line = "";
 
                 while (!String.IsNullOrEmpty(line = reader.ReadLine()))
                 {
-                    line /* encontrar a propriedade indicada para adicionar cada dado encontrado apos o espaco /*
+                    line // encontrar a propriedade indicada para adicionar cada dado encontrado apos o espaco 
 
                 }
 
-            }
+            } */
         }
 
        
