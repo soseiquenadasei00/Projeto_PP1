@@ -13,11 +13,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\EduardoCacciariMiral\\Source\\Repos\\Projeto_PP1\\Projeto1\\Projeto1.csproj",
+      "projectUniqueName": "C:\\Users\\EduardoCacciariMiral\\source\\repos\\soseiquenadasei00\\Projeto_PP1\\Projeto1\\Projeto1.csproj",
       "projectName": "Projeto1",
-      "projectPath": "C:\\Users\\EduardoCacciariMiral\\Source\\Repos\\Projeto_PP1\\Projeto1\\Projeto1.csproj",
+      "projectPath": "C:\\Users\\EduardoCacciariMiral\\source\\repos\\soseiquenadasei00\\Projeto_PP1\\Projeto1\\Projeto1.csproj",
       "packagesPath": "C:\\Users\\EduardoCacciariMiral\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\EduardoCacciariMiral\\Source\\Repos\\Projeto_PP1\\Projeto1\\obj\\",
+      "outputPath": "C:\\Users\\EduardoCacciariMiral\\source\\repos\\soseiquenadasei00\\Projeto_PP1\\Projeto1\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\EduardoCacciariMiral\\AppData\\Roaming\\NuGet\\NuGet.Config",

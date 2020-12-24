@@ -11,9 +11,17 @@ namespace Projeto1
 
 
 
-
-
 		
+
+		//Alinea 2 - Numero de concorrentes em prova
+		public int NumeroConcorrentesEmProva()
+		{
+			return concorrentesEmProva.Count;
+		}
+
+
+
+
 		public bool ConcorrenteComProvaValida(int concorrenteID)
         {
 			foreach (Etapa e in etapasDaProva.Values)
@@ -24,16 +32,43 @@ namespace Projeto1
         }
 		
 
+		//Aux, tempo total de um concorrente na prova
+		public int TempoTotalDoConcorrente(int concorrenteID) 
+		{
+			int soma = 0;
+			if (etapasDaProva.Count != 0) {
+				foreach(Etapa e in etapasDaProva.Values)
+				{
+					foreach(int i in e.tempos.Keys)
+					{
+						if (i == concorrenteID) 
+						{
+							soma += e.GetTempo(concorrenteID);
+						}
+					} 
+
+				}
+			
+			}
+			return soma;
+		}
+
+		//Alinea 3 - Lista com todos concorrentes que efetuaram uma prova valida. So chamar a funcao com .count. 
 		// Retorna uma lista com todos concorrentes c, tais que c passou por todas as etapas
-		public List<int> ProvaValidaPor()
+		public SortedList<int,int> ProvaValidaPor()
         {
-			List<int> aux = new List<int>();
+			SortedList<int,int> aux = new SortedList<int,int>();
 			foreach (int concorrenteID in concorrentesEmProva.Keys)
 			{
-				if (ConcorrenteComProvaValida(concorrenteID)) aux.Add(concorrenteID);
+				if (ConcorrenteComProvaValida(concorrenteID)) aux.Add(concorrenteID, TempoTotalDoConcorrente(concorrenteID));
             }
 			return aux;
         }
+
+		
+		
+		
+		
 	}
 }
 	

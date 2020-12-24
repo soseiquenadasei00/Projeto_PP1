@@ -18,7 +18,7 @@ namespace Projeto1
         {
             //Leitura do ficheiro do texto para criar os Concorrentes
             List<string> lista_concorrentes = new List<string>();
-            using (StreamReader reader = new StreamReader("Concorrentes.txt"))
+            using (StreamReader reader = new StreamReader("Concorrentesteste.txt"))
             {
 
                 string line = "";

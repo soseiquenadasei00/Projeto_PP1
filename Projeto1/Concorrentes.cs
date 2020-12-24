@@ -1,5 +1,5 @@
 ﻿using System;
-using System.Collections;
+using System.Collections.Generic;
 
 
 namespace Projeto1
@@ -9,49 +9,38 @@ namespace Projeto1
     {
 
         // Variaveis
-        public int numero; // Numero do participante
-        public int quantidade; // Quantidade de participantes
-        public string nome; // Nome do participante
-        public string carro; // Carro do participante
-        public string[] etapa_realizada; //Atribuir as etapas realizadas, aquando a leitura do ficheiro. (Exemplo 2 E1 E2)
+        public int concorrenteID; 
+        public string nome; 
+        public string carro; 
+        public string[] etapa_realizada; //Atribuir as etapas realizadas, aquando a leitura do ficheiro. (Exemplo 2 E1 E2) ????????????
         public int posicaoFinal;
-
-        //teste
+        public int tempoTotalDaProva;
 
         //Construtor
 
         public Concorrente(int numero, string nome, string carro)
         {
-            this.numero = numero;
+            this.concorrenteID = numero;
             this.nome = nome;
             this.carro = carro;
         }
 
 
         //Instancias
-        public int nParticipante (int n) // devolve o numero do participante
+        public int GetID () // devolve o numero do participante
         {
-            return (n = numero);
+            return concorrenteID;
+        }
+    
+        public string Getnome () // Devolve o nome do participante 
+        {
+            return nome;
         }
 
-        public int nquant (int qt) // Devolve a quantidade de participantes 
+        public string GetCarro () // Devolve o nome do carro
         {
-            return (qt = quantidade);
+            return carro;
         }
-        
-        public string nomePart (string nm) // Devolve o nome do participante 
-        {
-            return (nm = nome);
-        }
-
-        public string ncarro (string car) // Devolve o nome do carro
-        {
-            return (car = carro);
-        }
-
-
-
-
     }
     
 }
