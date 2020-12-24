@@ -18,7 +18,7 @@ namespace Projeto1
         {
             //Leitura do ficheiro do texto para criar os Concorrentes
             List<string> lista_concorrentes = new List<string>();
-            using (StreamReader reader = new StreamReader("Concorrentesteste.txt"))
+            using (StreamReader reader = new StreamReader("concorrentes.txt"))
             {
 
                 string line = "";
@@ -43,7 +43,7 @@ namespace Projeto1
         //Metodo para verificar os dados da lista_concorrentes e atribui-los aos respetivos dicionarios
         public static void VerificaDados(List<string> lista_concorrentes)
         {
-            /* using (StreamReader reader = new StreamReader("concorrentes.txt"))
+             using (StreamReader reader = new StreamReader("concorrentes.txt"))
             {
                 string line = "";
 
@@ -53,7 +53,7 @@ namespace Projeto1
 
                 }
 
-            } */
+            } 
         }
 
        
