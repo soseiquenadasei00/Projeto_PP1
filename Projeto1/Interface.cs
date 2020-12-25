@@ -9,39 +9,28 @@ namespace Projeto1
     {
 
 
-        
-        private Dictionary<int, Provas> provas_dic;
+        //Primeiro valor = conccorenteID
+        //Segundo valor = objeto da classe Etapa
+        //Terceriro valor = Dicitionary<ConcorrenteID, tempo> tempos
 
 
-        //Metodo para criar os dados da classe Concorrente
-        public static void InicializaConcorrentes()
+
+        //Metodo para criar as diversas classes
+        public static void LerFicheiro()
         {
-            //Leitura do ficheiro do texto para criar os Concorrentes
-            List<string> lista_concorrentes = new List<string>();
-            using (StreamReader reader = new StreamReader("concorrentesteste.txt"))
+            using (StreamReader reader = new StreamReader("concorrentes.txt"))
             {
 
-                string line = "";
-
-                while (!String.IsNullOrEmpty(line = reader.ReadLine()))
+                string line;
+                while ((line = reader.ReadLine()) != null)
                 {
-                 
-                    lista_concorrentes.Add(line);
-
+                    foreach (char c in line)
+                        Console.WriteLine(c);
                 }
-
-
-
-                // Imprimir ficheiro na consola
-                foreach (var item in lista_concorrentes)
-                {
-                    Console.WriteLine(item);
-                }
-
-
-            }
 
         }
+
+    }
 
 
         /*
@@ -61,10 +50,6 @@ namespace Projeto1
             } 
         }
         */
-
-       
-
-
 
 
 

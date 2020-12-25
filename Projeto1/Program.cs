@@ -13,7 +13,7 @@ namespace Projeto1
 
 
 			Console.WriteLine("TESTE");
-			Interface.InicializaConcorrentes();
+			Interface.LerFicheiro();
 
 			//uma vez que estou a deixar a leitura dos ficheiros para depois, vou criar aqui alguns objetos para testar os metodos
 

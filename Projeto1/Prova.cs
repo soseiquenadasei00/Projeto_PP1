@@ -80,7 +80,7 @@ namespace Projeto1
 		//Alinea 3 - Lista ordenada em ordem descrescente com todos concorrentes que efetuaram uma prova valida. 
 		//Para pegar o numero de concorrentes -- chamar a funcao com .count. 
 		
-		//falta garantir a ordem. talvez?
+		
 		public SortedList<int,int> ProvaValidaPor()
         {
 			SortedList<int,int> aux = new SortedList<int,int>();
