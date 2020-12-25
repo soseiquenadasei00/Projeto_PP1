@@ -19,6 +19,7 @@ namespace Projeto1
 
 			Concorrente joao = new Concorrente(1, "joao", "subaru");
 			Concorrente maria = new Concorrente(2, "Maria", "mini cooper s");
+			Concorrente jose = new Concorrente(3, "jose", "corolla");
 
 			Etapa p_e1 = new Etapa();
 			p_e1.SetDistancia(2500);
@@ -30,11 +31,15 @@ namespace Projeto1
 
 			p_e1.AdicionarConcorrenteETempo(2, 43235);
 
+			p_e1.AdicionarConcorrenteETempo(3, 23453);
+			e1_c.AdicionarConcorrenteETempo(3, 45642);
+
 
 			Provas rally1 = new Provas();
 
 			rally1.AdicionarConcorrente(joao);
 			rally1.AdicionarConcorrente(maria);
+			rally1.AdicionarConcorrente(jose);
 			rally1.AdicionarEtapa(p_e1);
 			rally1.AdicionarEtapa(e1_c);
 
@@ -50,6 +55,20 @@ namespace Projeto1
 
 			//metodos da classe prova
 
+			Console.WriteLine("numero de concorrentes em prova :" + rally1.NumeroConcorrentesEmProva()); //retorna 3
+			Console.WriteLine("Concorrente 1 tem prova valida?" + rally1.ConcorrenteComProvaValida(1)); //retorna true
+			Console.WriteLine("tempo total do concorrente 1 : " + rally1.TempoTotalDoConcorrente(1)); //retorna +-83000
+
+
+
+			SortedList<int, int> paraPrintar = rally1.ProvaValidaPor();
+			for(int i = 0; i < paraPrintar.Count; i++ )
+            {
+				Console.WriteLine("{0} , {1} " , paraPrintar.Keys[i], paraPrintar.Values[i]);
+            }
+          
+			
+			
 
 
 
