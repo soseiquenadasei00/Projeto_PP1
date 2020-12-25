@@ -15,6 +15,51 @@ namespace Projeto1
 			Console.WriteLine("TESTE");
 			Interface.InicializaConcorrentes();
 
+			//uma vez que estou a deixar a leitura dos ficheiros para depois, vou criar aqui alguns objetos para testar os metodos
+
+			Concorrente joao = new Concorrente(1, "joao", "subaru");
+			Concorrente maria = new Concorrente(2, "Maria", "mini cooper s");
+
+			Etapa p_e1 = new Etapa();
+			p_e1.SetDistancia(2500);
+			Etapa e1_c = new Etapa();
+			e1_c.SetDistancia(4000);
+
+			p_e1.AdicionarConcorrenteETempo(1, 27542);
+			e1_c.AdicionarConcorrenteETempo(1, 54234);
+
+			p_e1.AdicionarConcorrenteETempo(2, 43235);
+
+
+			Provas rally1 = new Provas();
+
+			rally1.AdicionarConcorrente(joao);
+			rally1.AdicionarConcorrente(maria);
+			rally1.AdicionarEtapa(p_e1);
+			rally1.AdicionarEtapa(e1_c);
+
+			
+
+			//metodos da classe etapa
+
+			Console.WriteLine("tempo medio para a etapa 1:  " + p_e1.TempoMedio()); //retorna algo por volta de 35000
+			Console.WriteLine("concorrente 1 participou?" + p_e1.ConcorrenteParticipou(1)); //retorna true
+
+			Console.WriteLine("tempo medio para a etapa 2:  " + e1_c.TempoMedio()); //retorna 54234
+			Console.WriteLine("concorrente 2 participou?" + e1_c.ConcorrenteParticipou(2)); //retorna false
+
+			//metodos da classe prova
+
+
+
+
+
+
+
+
+
+
+
 			/* 
 			exemplo de ficheiro de testo e consequentemente do array de strings - lines
 			2 E1 E2 21672

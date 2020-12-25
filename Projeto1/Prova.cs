@@ -8,9 +8,33 @@ namespace Projeto1
 		// Variaveis
 		public Dictionary<int, Concorrente> concorrentesEmProva;
 		public Dictionary<int, Etapa> etapasDaProva;
+		int numeroEtapas;
 
 
+		//Construtor e Metodos basicos
+		public Provas()
+        {
+			concorrentesEmProva = new Dictionary<int, Concorrente>();
+			etapasDaProva = new Dictionary<int, Etapa>();
+			numeroEtapas = 0;
+        }
 
+		public void AdicionarEtapa(Etapa e)
+		{
+			numeroEtapas++;
+			if (!etapasDaProva.ContainsValue(e))
+			{
+					etapasDaProva.Add(numeroEtapas, e);
+			}
+		}
+
+		public void AdicionarConcorrente(Concorrente c)
+        {
+			if (!concorrentesEmProva.ContainsValue(c))
+			{	
+				concorrentesEmProva.Add(c.concorrenteID, c);
+			}	
+        }
 		
 
 		//Alinea 2 - Numero de concorrentes em prova
@@ -41,9 +65,9 @@ namespace Projeto1
 				{
 					foreach(int i in e.tempos.Keys)
 					{
-						if (i == concorrenteID) 
+						if (i == concorrenteID)
 						{
-							soma += e.GetTempo(concorrenteID);
+							soma += e.tempos[concorrenteID];
 						}
 					} 
 

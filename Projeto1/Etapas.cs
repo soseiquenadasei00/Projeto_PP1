@@ -29,6 +29,13 @@ namespace Projeto1
 			tempos = new Dictionary<int, int>();
         }
 
+		//MUITO IMPORTANTE
+		//FUNCAO A CORRER PARA CADA CONCORRENTE QUE EFETUOU UMA QUALQUER ETAPA
+		public void AdicionarConcorrenteETempo(int concorrenteID, int tempo)
+        {
+			tempos.Add(concorrenteID, tempo);
+        }
+
 
 		//Metodos
 		public void SetDistancia(int n)
@@ -46,7 +53,9 @@ namespace Projeto1
 				soma += tempo;
             }
 
-			return (soma / tempos.Count);
+			float media = (soma / tempos.Count);
+
+			return media;
         }
 
 		//Determina se um concorrente participou da etapa. Utilizada como auxiliar para determinar se o concorrente tem prova valida
@@ -56,12 +65,12 @@ namespace Projeto1
         }
 
 		//Funcao para determinar o tempo de um concorrente na etapa em que foi chamada.
-		public int GetTempo(int concorrenteID)
-		{  
-			int tempo = 0;
-			if (ConcorrenteParticipou(concorrenteID)) tempo = tempos[concorrenteID];
-			return tempo;
-		}
+		//public int GetTempo(int concorrenteID)
+		//{  
+		//	int tempo = 0;
+		//	if (ConcorrenteParticipou(concorrenteID)) tempo = tempos[concorrenteID];
+		//	return tempo;
+		//}
 
 		
 	}

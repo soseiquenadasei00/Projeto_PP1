@@ -22,6 +22,7 @@ namespace Projeto1
             this.concorrenteID = numero;
             this.nome = nome;
             this.carro = carro;
+            posicaoFinal = 0;
         }
 
 
