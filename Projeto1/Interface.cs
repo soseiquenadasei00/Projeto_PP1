@@ -22,12 +22,10 @@ namespace Projeto1
             {
 
                 string line;
-                while ((line = reader.ReadLine()) != null)    
-                { 
-                  foreach(var item in reader.ReadLine())
-                    {
-                        Console.WriteLine(item);
-                    }
+                while ((line = reader.ReadLine()) != null)
+                {
+                  
+                    
                 }
 
         }
