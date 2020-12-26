@@ -5,7 +5,7 @@ using System.IO;
 
 namespace Projeto1
 {
-    class Interface
+    public class Interface
     {
 
 
@@ -22,10 +22,12 @@ namespace Projeto1
             {
 
                 string line;
-                while ((line = reader.ReadLine()) != null)
-                {
-                    foreach (char c in line)
-                        Console.WriteLine(c);
+                while ((line = reader.ReadLine()) != null)    
+                { 
+                  foreach(var item in reader.ReadLine())
+                    {
+                        Console.WriteLine(item);
+                    }
                 }
 
         }
