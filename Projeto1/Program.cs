@@ -11,15 +11,15 @@ namespace Projeto1
 			//encontrado num documento da microsoft e feito o glorioso copy-paste
 			//string[] lines = System.IO.File.ReadAllLines(@"C:\Users\Public\TestFolder\Ficheiro_que_o_prof_vai_mandar.txt");
 
-
+			//Interface.LerFicheiro();
 			Console.WriteLine("TESTE");
-			Interface.LerFicheiro();
+			
 
 			//uma vez que estou a deixar a leitura dos ficheiros para depois, vou criar aqui alguns objetos para testar os metodos
 
-			Concorrente joao = new Concorrente(1, "joao", "subaru");
-			Concorrente maria = new Concorrente(2, "Maria", "mini cooper s");
-			Concorrente jose = new Concorrente(3, "jose", "corolla");
+			Concorrente joao = new Concorrente(1,"joao", "subaru");
+			Concorrente maria = new Concorrente(2,"Maria", "mini cooper s");
+			Concorrente jose = new Concorrente(3,"jose", "corolla");
 
 			Etapa p_e1 = new Etapa();
 			p_e1.SetDistancia(2500);

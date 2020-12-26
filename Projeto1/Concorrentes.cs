@@ -17,7 +17,7 @@ namespace Projeto1
 
 
         //Construtor
-        public Concorrente(int numero, string nome, string carro)
+        public Concorrente(int numero,string nome, string carro)
         {
             this.concorrenteID = numero;
             this.nome = nome;
