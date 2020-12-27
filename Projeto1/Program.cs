@@ -66,9 +66,20 @@ namespace Projeto1
             {
 				Console.WriteLine("{0} , {1} " , paraPrintar.Keys[i], paraPrintar.Values[i]);
             }
-          
-			
-			
+
+			Console.WriteLine("SEPARADOR");
+
+			SortedList<int, float> paraPrintar2 = rally1.TempoDasEtapasParaProvasValidas();
+			for (int i = 0; i < paraPrintar2.Count; i++)
+			{
+				Console.WriteLine("{0} , {1} ", paraPrintar2.Keys[i], paraPrintar2.Values[i]);
+			}
+
+			Console.WriteLine(rally1.CarroMaisRapido());
+
+			Console.WriteLine(rally1.PiorEtapaDoVencedor());
+
+
 
 
 

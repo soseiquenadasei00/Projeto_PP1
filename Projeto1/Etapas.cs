@@ -58,19 +58,15 @@ namespace Projeto1
 			return media;
         }
 
+
+
 		//Determina se um concorrente participou da etapa. Utilizada como auxiliar para determinar se o concorrente tem prova valida
 		public bool ConcorrenteParticipou(int concorrenteID)
         {
 			return tempos.ContainsKey(concorrenteID);		
         }
 
-		//Funcao para determinar o tempo de um concorrente na etapa em que foi chamada.
-		//public int GetTempo(int concorrenteID)
-		//{  
-		//	int tempo = 0;
-		//	if (ConcorrenteParticipou(concorrenteID)) tempo = tempos[concorrenteID];
-		//	return tempo;
-		//}
+		
 
 		
 	}
