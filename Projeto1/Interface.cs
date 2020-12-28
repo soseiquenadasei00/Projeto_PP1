@@ -16,7 +16,7 @@ namespace Projeto1
 
 
         //Metodo para criar as diversas classes
-        public static void LerFicheiro(Concorrente a)
+        public static void LerFicheiro()
         {
             using (StreamReader reader = new StreamReader("concorrentes.txt"))
             {
@@ -27,17 +27,28 @@ namespace Projeto1
                 string[] conteudo = s.Split(' ');
 
                 //Escrita dos valores do array conteudo
-
-                foreach (var item in conteudo)
+                /*foreach (var item in conteudo)
                 {
                     Console.WriteLine(item.ToString());
                 }
-
+                */
 
 
                 //Atribuicao dados do array conteudo nas respetivas variaveis
-                /*a.concorrenteID = (int)conteudo.GetValue(0);*/
-                
+
+                int valor;
+                valor = (int)conteudo.GetValue(0);
+               
+
+                Concorrente concorrente1 = new Concorrente();
+                concorrente1.SetConcorrenteID(valor);
+                concorrente1.MostrarConcorrente();
+
+
+                    
+              
+                    
+                    
                 
 
                

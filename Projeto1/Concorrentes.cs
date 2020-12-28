@@ -17,6 +17,11 @@ namespace Projeto1
 
 
         //Construtor
+
+        public Concorrente()
+        {
+
+        }
         public Concorrente(int numero,string nome, string carro)
         {
             this.concorrenteID = numero;
@@ -25,6 +30,12 @@ namespace Projeto1
             posicaoFinal = 0;
         }
 
+        public void MostrarConcorrente()
+        {
+            Console.WriteLine(concorrenteID);
+            Console.WriteLine(nome);
+            Console.WriteLine(carro);
+        }
 
         //Instancias
         public int GetID () // devolve o numero do participante
@@ -40,6 +51,11 @@ namespace Projeto1
         public string GetCarro () // Devolve o nome do carro
         {
             return carro;
+        }
+
+        public void SetConcorrenteID(int concorrenteID)
+        {
+            this.concorrenteID = concorrenteID;
         }
     }
     

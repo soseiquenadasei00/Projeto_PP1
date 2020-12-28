@@ -11,8 +11,10 @@ namespace Projeto1
 			//encontrado num documento da microsoft e feito o glorioso copy-paste
 			//string[] lines = System.IO.File.ReadAllLines(@"C:\Users\Public\TestFolder\Ficheiro_que_o_prof_vai_mandar.txt");
 
-			//Interface.LerFicheiro();
+			
 			Console.WriteLine("TESTE");
+			Interface.LerFicheiro();
+			
 
 			
 			
@@ -22,6 +24,9 @@ namespace Projeto1
 			Concorrente joao = new Concorrente(1,"joao", "subaru");
 			Concorrente maria = new Concorrente(2,"Maria", "mini cooper s");
 			Concorrente jose = new Concorrente(3,"jose", "corolla");
+			
+			
+
 
 			Etapa p_e1 = new Etapa();
 			p_e1.SetDistancia(2500);
@@ -45,7 +50,7 @@ namespace Projeto1
 			rally1.AdicionarEtapa(p_e1);
 			rally1.AdicionarEtapa(e1_c);
 
-			Interface.LerFicheiro(joao);
+			
 
 			//metodos da classe etapa
 
