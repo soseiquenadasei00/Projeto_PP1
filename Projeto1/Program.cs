@@ -13,6 +13,8 @@ namespace Projeto1
 
 			//Interface.LerFicheiro();
 			Console.WriteLine("TESTE");
+
+			
 			
 
 			//uma vez que estou a deixar a leitura dos ficheiros para depois, vou criar aqui alguns objetos para testar os metodos
@@ -43,7 +45,7 @@ namespace Projeto1
 			rally1.AdicionarEtapa(p_e1);
 			rally1.AdicionarEtapa(e1_c);
 
-			
+			Interface.LerFicheiro(joao);
 
 			//metodos da classe etapa
 

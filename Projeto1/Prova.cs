@@ -97,10 +97,6 @@ namespace Projeto1
 		}
 
 
-
-
-
-
 		//Nois Fez esta monstruosidade, que troca as chaves com os valores da funcao a cima para poder printar em ordem descrecente depois
 		//Alinea 3 - Lista ordenada em ordem descrescente com todos concorrentes que efetuaram uma prova valida. 
 		//Alinea 4 - Para pegar o numero de concorrentes -- chamar a funcao com .count. 
@@ -124,15 +120,13 @@ namespace Projeto1
 		{
 
 			SortedList<int, int> paraPrintar = ProvaValidaPorInversa();
-			for (int i = 0; i < paraPrintar.Count; i++)
+			for (int i = paraPrintar.Count-1; i >= 0 ; i--)
 			{
 				Console.WriteLine("Numero de Concorrente: {0} , tempo: {1} ", paraPrintar.Values[i], paraPrintar.Keys[i]);
 			}
 
 		}
 		//A monstruosidade acaba aqui.
-
-
 
 
 
@@ -206,19 +200,18 @@ namespace Projeto1
 					//dos tempos mínimos por etapa independentemente de terem sido efetuados por
 					//concorrentes com provas válidas ou não;
 
-		//public int MenorTempoPossivel()
-  //      {
-		//	int tempoMin = 0;
-		//	foreach(Etapa e in etapasDaProva.Values)
-  //          {
-		//		foreach(int concorrenteID in e.tempos.Keys)
-  //              {
-		//			tempoMin =
-  //              }
-  //          }
-  //      }
+	   public int MenorTempoPossivel()
+       {
+		int tempoMin = 0;
+	    foreach(Etapa e in etapasDaProva.Values)
+           {
+				tempoMin += e.TempoMinimo();
+           }
+			return tempoMin;
+      }
 
-    }
+		//Alinha 9 
+}
 }
 	
 	

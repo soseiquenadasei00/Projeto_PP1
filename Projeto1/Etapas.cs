@@ -18,6 +18,7 @@ namespace Projeto1
 		//new Dictionary<int,int>().Insert(2, 21672).Insert(1, 37203);
 		//i.e ConcorrenteID / tempoDeEtapa;
 		public Dictionary<int, int> tempos;
+		 
 
 
 		private int distancia;
@@ -56,6 +57,18 @@ namespace Projeto1
 			float media = (soma / tempos.Count);
 
 			return media;
+        }
+		// Função que retornar o menor tempo
+		public int TempoMinimo()
+        {
+			int minimo = 9999999;
+			
+			foreach(int tempo in tempos.Values)
+            {
+				if (tempo < minimo) minimo = tempo;
+				
+            } 
+			return minimo;
         }
 
 
