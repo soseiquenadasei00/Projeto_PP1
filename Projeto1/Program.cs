@@ -26,7 +26,7 @@ namespace Projeto1
 			Etapa e1_c = new Etapa();
 			e1_c.SetDistancia(4000);
 
-			p_e1.AdicionarConcorrenteETempo(1, 27542);
+			p_e1.AdicionarConcorrenteETempo(1, 18000);
 			e1_c.AdicionarConcorrenteETempo(1, 54234);
 
 			p_e1.AdicionarConcorrenteETempo(2, 43235);
@@ -59,25 +59,19 @@ namespace Projeto1
 			Console.WriteLine("Concorrente 1 tem prova valida?" + rally1.ConcorrenteComProvaValida(1)); //retorna true
 			Console.WriteLine("tempo total do concorrente 1 : " + rally1.TempoTotalDoConcorrente(1)); //retorna +-83000
 
-
-
-			SortedList<int, int> paraPrintar = rally1.ProvaValidaPor();
-			for(int i = 0; i < paraPrintar.Count; i++ )
-            {
-				Console.WriteLine("{0} , {1} " , paraPrintar.Keys[i], paraPrintar.Values[i]);
-            }
+			rally1.printTempoDecre();
 
 			Console.WriteLine("SEPARADOR");
 
 			SortedList<int, float> paraPrintar2 = rally1.TempoDasEtapasParaProvasValidas();
 			for (int i = 0; i < paraPrintar2.Count; i++)
 			{
-				Console.WriteLine("{0} , {1} ", paraPrintar2.Keys[i], paraPrintar2.Values[i]);
+				Console.WriteLine("etapa: {0} ,tempo medio da etapa: {1} ", paraPrintar2.Keys[i], paraPrintar2.Values[i]);
 			}
 
-			Console.WriteLine(rally1.CarroMaisRapido());
+			Console.WriteLine("Carro do vencedor: {0} " , rally1.CarroMaisRapido());
 
-			Console.WriteLine(rally1.PiorEtapaDoVencedor());
+            Console.WriteLine("Pior etapa do vencedor {0} ", rally1.PiorEtapaDoVencedor());
 
 
 

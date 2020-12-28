@@ -79,22 +79,72 @@ namespace Projeto1
 			return soma;
 		}
 
-		//Alinea 3 - Lista ordenada em ordem descrescente com todos concorrentes que efetuaram uma prova valida. 
-		//Alinea 4 - Para pegar o numero de concorrentes -- chamar a funcao com .count. 
-		
-		
-		public SortedList<int,int> ProvaValidaPor()
-        {
-			SortedList<int,int> aux = new SortedList<int,int>();
+		//Metodo auxilar, para fazer tudo o resto, nao mexer!!!!!
+		public SortedList<int, int> ProvaValidaPor()
+		{
+
+			SortedList<int, int> aux = new SortedList<int, int>();
+
 			foreach (int concorrenteID in concorrentesEmProva.Keys)
 			{
-				if (ConcorrenteComProvaValida(concorrenteID)) aux.Add(concorrenteID, TempoTotalDoConcorrente(concorrenteID));
-            }
+				if (ConcorrenteComProvaValida(concorrenteID))
+				{
+					aux.Add(concorrenteID, TempoTotalDoConcorrente(concorrenteID));
+				}
+
+			}
 			return aux;
+		}
+
+
+
+
+
+
+		//Nois Fez esta monstruosidade, que troca as chaves com os valores da funcao a cima para poder printar em ordem descrecente depois
+		//Alinea 3 - Lista ordenada em ordem descrescente com todos concorrentes que efetuaram uma prova valida. 
+		//Alinea 4 - Para pegar o numero de concorrentes -- chamar a funcao com .count. 
+		public SortedList<int, int> ProvaValidaPorInversa()
+		{
+
+			SortedList<int, int> aux = new SortedList<int, int>();
+
+			foreach (int concorrenteID in concorrentesEmProva.Keys)
+			{
+				if (ConcorrenteComProvaValida(concorrenteID))
+				{
+					aux.Add(TempoTotalDoConcorrente(concorrenteID), concorrenteID);
+				}
+
+			}
+			return aux;
+		}
+		//Função que printa o tempo(valido) dos concorrentes do maior para o menor.
+		public void printTempoDecre()
+		{
+
+			SortedList<int, int> paraPrintar = ProvaValidaPorInversa();
+			for (int i = 0; i < paraPrintar.Count; i++)
+			{
+				Console.WriteLine("Numero de Concorrente: {0} , tempo: {1} ", paraPrintar.Values[i], paraPrintar.Keys[i]);
+			}
+
+		}
+		//A monstruosidade acaba aqui.
+
+
+
+
+
+
+		//Alinea 4 - Numero de Provas Validas
+		public int NumeroDeProvasValidas()
+        {
+			return ProvaValidaPor().Count;
         }
 
-        // Alinea 5 - Apresentacao  das médias dos tempos por etapa e ordenado por ordem de ocorrência das etapas para provas validas.
-        public SortedList<int, float> TempoDasEtapasParaProvasValidas()
+		// Alinea 5 - Apresentacao  das médias dos tempos por etapa e ordenado por ordem de ocorrência das etapas para provas validas.
+		public SortedList<int, float> TempoDasEtapasParaProvasValidas()
         {
             int contador = 1;
             SortedList<int, float> aux = new SortedList<int, float>();

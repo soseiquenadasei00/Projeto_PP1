@@ -65,9 +65,5 @@ namespace Projeto1
         {
 			return tempos.ContainsKey(concorrenteID);		
         }
-
-		
-
-		
 	}
 }
