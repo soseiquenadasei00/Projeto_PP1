@@ -13,11 +13,14 @@ namespace Projeto1
 
 			
 			Console.WriteLine("TESTE");
-			Interface.LerFicheiro();
-			
 
-			
-			
+			Provas rally2 = new Provas();
+			Interface.LerConcorrentes(rally2, "concorrentesteste.txt");
+			Interface.LerEtapas(rally2, "etapas.txt");
+			return;
+
+
+
 
 			//uma vez que estou a deixar a leitura dos ficheiros para depois, vou criar aqui alguns objetos para testar os metodos
 
@@ -28,9 +31,9 @@ namespace Projeto1
 			
 
 
-			Etapa p_e1 = new Etapa();
+			Etapa p_e1 = new Etapa("p_e1");
 			p_e1.SetDistancia(2500);
-			Etapa e1_c = new Etapa();
+			Etapa e1_c = new Etapa("e1_c");
 			e1_c.SetDistancia(4000);
 
 			p_e1.AdicionarConcorrenteETempo(1, 18000);
@@ -79,8 +82,6 @@ namespace Projeto1
 			Console.WriteLine("Carro do vencedor: {0} " , rally1.CarroMaisRapido());
 
             Console.WriteLine("Pior etapa do vencedor {0} ", rally1.PiorEtapaDoVencedor());
-
-
 
 
 

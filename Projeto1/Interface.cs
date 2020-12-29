@@ -8,77 +8,58 @@ namespace Projeto1
     public class Interface
     {
 
+        //1 Joao Subaru
+        //2 Maria Subaru
+        //3 Joana BMW
+        //5 Jose Lancia
+        //6 Carlos Audi
 
-        //Primeiro valor = conccorenteID
-        //Segundo valor = objeto da classe Etapa
-        //Terceriro valor = Dicitionary<ConcorrenteID, tempo> tempos
 
-
-
-        //Metodo para criar as diversas classes
-        public static void LerFicheiro()
+        public static void LerConcorrentes(Provas p, string nomeDoFicheiro)
         {
-            using (StreamReader reader = new StreamReader("concorrentes.txt"))
+
+            using (StreamReader reader = new StreamReader(nomeDoFicheiro))
             {
-                //Leitura de todos os caracteres do ficheiro de texto
-                string s = reader.ReadLine();
-                //Utilizacao do array conteudo para guardar cada um dos valores econtrados apos um espaco(split);
-                //Primeiro e ultimo valor tambem sao armazenados
-                string[] conteudo = s.Split(' ');
 
-                //Escrita dos valores do array conteudo
-                /*foreach (var item in conteudo)
+                string line = reader.ReadLine();
+
+                while (line != null)
                 {
-                    Console.WriteLine(item.ToString());
+                    string[] valores = line.Split(' ');
+                    Concorrente novoConcorrente = new Concorrente(Int32.Parse(valores[0]), valores[1], valores[2]);
+                    p.AdicionarConcorrente(novoConcorrente);
+                    line = reader.ReadLine();
                 }
-                */
-
-
-                //Atribuicao dados do array conteudo nas respetivas variaveis
-
-                int valor;
-                valor = (int)conteudo.GetValue(0);
-               
-
-                Concorrente concorrente1 = new Concorrente();
-                concorrente1.SetConcorrenteID(valor);
-                concorrente1.MostrarConcorrente();
-
-
-                    
-              
-                    
-                    
-                
-
-               
-
-
-
             }
-
-    }
-
-
-        /*
-        //Metodo para verificar os dados da lista_concorrentes e atribui-los aos respetivos dicionarios
-        public static void VerificaDados(List<string> lista_concorrentes)
-        {
-             using (StreamReader reader = new StreamReader("concorrentesteste.txt"))
-            {
-                string line = "";
-
-                while (!String.IsNullOrEmpty(line = reader.ReadLine()))
-                {
-                    line // encontrar a propriedade indicada para adicionar cada dado encontrado apos o espaco 
-
-                }
-
-            } 
         }
-        */
+        
+        public static void LerEtapas(Provas p, string nomeDoFicheiro)
+        {
+            using (StreamReader reader = new StreamReader(nomeDoFicheiro))
+            {
+
+                string line = reader.ReadLine();
+
+                while (line != null)
+                {
+                    string[] valores = line.Split(' ');
+                    string DesignacaoEtapa = valores[1] + "_" + valores[2];
+                    Etapa novaEtapa = new Etapa(DesignacaoEtapa);
+
+                    p.AdicionarEtapa(novaEtapa);
+                    novaEtapa.tempos.Add(Int32.Parse(valores[0]), Int32.Parse(valores[3]));
+                    
+                    
+                    line = reader.ReadLine();
+                }
+            }
+        }
+
+
 
 
 
     }
+
+
 }

@@ -18,14 +18,18 @@ namespace Projeto1
 		//new Dictionary<int,int>().Insert(2, 21672).Insert(1, 37203);
 		//i.e ConcorrenteID / tempoDeEtapa;
 		public Dictionary<int, int> tempos;
-		 
+
+
+		public string designacao;
+		//EX: "E1_E2" // "P_E1" // "E2_C"
 
 
 		private int distancia;
 
 		// construtor 
-		public Etapa() 
+		public Etapa(string designacao) 
         {
+			this.designacao = designacao;
 			distancia = 0;
 			tempos = new Dictionary<int, int>();
         }

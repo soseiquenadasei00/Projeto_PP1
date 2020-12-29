@@ -160,37 +160,78 @@ namespace Projeto1
             return aux;
         }
 
+		//TO DO: RETORNAR CONCORRENTE
 		// Alinea 6  - Apresentação do carro mais rápido / mais lento a efetuar uma prova válida;
 		public string CarroMaisRapido()
         {
 			int min = 0;
-			string carro = "";
+			string carromaisrapido = "";
 			foreach (int concorrenteID in ProvaValidaPor().Keys)
             {
-				if (min == 0 ) min = TempoTotalDoConcorrente(concorrenteID);
+				if (min == 0)
+				{
+					min = TempoTotalDoConcorrente(concorrenteID);
+					carromaisrapido = concorrentesEmProva[concorrenteID].GetCarro();
+				}
 				else if (TempoTotalDoConcorrente(concorrenteID) < min)
 				{
 					min = TempoTotalDoConcorrente(concorrenteID);
-					carro = concorrentesEmProva[concorrenteID].GetCarro();
+					carromaisrapido = concorrentesEmProva[concorrenteID].GetCarro();
 				}
             }
-			return carro;
+			return carromaisrapido;
+        }
+		public string CarroMaisLento()
+		{
+			int max = 0;
+			string carromaislento = "";
+			foreach (int concorrenteID in ProvaValidaPor().Keys)
+			{
+				if (max == 0)
+				{
+					max = TempoTotalDoConcorrente(concorrenteID);
+					carromaislento = concorrentesEmProva[concorrenteID].GetCarro();
+				}
+				else if (TempoTotalDoConcorrente(concorrenteID) > max)
+				{
+					max = TempoTotalDoConcorrente(concorrenteID);
+					carromaislento = concorrentesEmProva[concorrenteID].GetCarro();
+				}
+			}
+			return carromaislento;
+		}
+
+		//Metodo Auxiliar - De todos os que realizaram uma prova valida, retorna o vencedor
+		public int Vencedor()
+        {
+			int idDoVencedor = 0;
+			int tempototalmin = 0;
+			foreach (int concorrenteID in ProvaValidaPor().Keys)
+            {
+				if (TempoTotalDoConcorrente(concorrenteID) > tempototalmin)
+                {
+					tempototalmin = TempoTotalDoConcorrente(concorrenteID);
+					idDoVencedor = concorrenteID;
+                }
+            }
+			return idDoVencedor;
         }
 
 		//Alinea 7 - Cálculo do tempo da etapa mais lenta do concorrente mais rápido a efetuar uma prova valida
 		public int PiorEtapaDoVencedor()
         {
-			string carroDoVencedor = CarroMaisRapido();
 			int max = 0;
 			foreach(int concorrenteID in concorrentesEmProva.Keys)
             {
-				if (concorrentesEmProva[concorrenteID].carro == carroDoVencedor)
-                {
-					foreach(int numeroEtapa in etapasDaProva.Keys)
+				if (concorrenteID == Vencedor())
+				{
+					foreach(Etapa e in etapasDaProva.Values)
                     {
-						max = etapasDaProva[numeroEtapa].tempos[concorrenteID];
-						if (etapasDaProva[numeroEtapa].tempos[concorrenteID] > max) max = etapasDaProva[numeroEtapa].tempos[concorrenteID];
-					}
+						if (e.tempos[concorrenteID] > max)
+						{
+							max = e.tempos[concorrenteID];
+						}
+                    }
                 }
             }
 			return max;
