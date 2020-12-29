@@ -15,29 +15,28 @@ namespace Projeto1
 
 		//Construtor e Metodos basicos
 		public Provas()
-        {
+		{
 			concorrentesEmProva = new Dictionary<int, Concorrente>();
 			etapasDaProva = new Dictionary<int, Etapa>();
 			numeroEtapas = 0;
-        }
-
+		}
 		public void AdicionarEtapa(Etapa e)
 		{
 			numeroEtapas++;
 			if (!etapasDaProva.ContainsValue(e))
 			{
-					etapasDaProva.Add(numeroEtapas, e);
+				etapasDaProva.Add(numeroEtapas, e);
 			}
 		}
 
 		public void AdicionarConcorrente(Concorrente c)
-        {
+		{
 			if (!concorrentesEmProva.ContainsValue(c))
-			{	
+			{
 				concorrentesEmProva.Add(c.concorrenteID, c);
-			}	
-        }
-		
+			}
+		}
+
 
 		//Alinea 2 - Numero de concorrentes em prova
 		public int NumeroConcorrentesEmProva()
@@ -49,32 +48,33 @@ namespace Projeto1
 
 		//Aux, testa se um concorrente c tem prova valida
 		public bool ConcorrenteComProvaValida(int concorrenteID)
-        {
+		{
 			foreach (Etapa e in etapasDaProva.Values)
-            {
+			{
 				if (!e.ConcorrenteParticipou(concorrenteID)) return false;
-            }
+			}
 			return true;
-        }
-		
+		}
+
 
 		//Aux, tempo total de um concorrente na prova
-		public int TempoTotalDoConcorrente(int concorrenteID) 
+		public int TempoTotalDoConcorrente(int concorrenteID)
 		{
 			int soma = 0;
-			if (etapasDaProva.Count != 0) {
-				foreach(Etapa e in etapasDaProva.Values)
+			if (etapasDaProva.Count != 0)
+			{
+				foreach (Etapa e in etapasDaProva.Values)
 				{
-					foreach(int i in e.tempos.Keys)
+					foreach (int i in e.tempos.Keys)
 					{
 						if (i == concorrenteID)
 						{
 							soma += e.tempos[concorrenteID];
 						}
-					} 
+					}
 
 				}
-			
+
 			}
 			return soma;
 		}
@@ -120,7 +120,7 @@ namespace Projeto1
 		{
 
 			SortedList<int, int> paraPrintar = ProvaValidaPorInversa();
-			for (int i = paraPrintar.Count-1; i >= 0 ; i--)
+			for (int i = paraPrintar.Count - 1; i >= 0; i--)
 			{
 				Console.WriteLine("Numero de Concorrente: {0} , tempo: {1} ", paraPrintar.Values[i], paraPrintar.Keys[i]);
 			}
@@ -133,41 +133,41 @@ namespace Projeto1
 
 		//Alinea 4 - Numero de Provas Validas
 		public int NumeroDeProvasValidas()
-        {
+		{
 			return ProvaValidaPor().Count;
-        }
+		}
 
 		// Alinea 5 - Apresentacao  das médias dos tempos por etapa e ordenado por ordem de ocorrência das etapas para provas validas.
 		public SortedList<int, float> TempoDasEtapasParaProvasValidas()
-        {
-            int contador = 1;
-            SortedList<int, float> aux = new SortedList<int, float>();
-            foreach (Etapa e in etapasDaProva.Values)
-            {
+		{
+			int contador = 1;
+			SortedList<int, float> aux = new SortedList<int, float>();
+			foreach (Etapa e in etapasDaProva.Values)
+			{
 				int soma = 0;
 				float media = 0;
 				foreach (int concorrenteID in e.tempos.Keys)
-                {
-                    if (ConcorrenteComProvaValida(concorrenteID))
-                    {
+				{
+					if (ConcorrenteComProvaValida(concorrenteID))
+					{
 						soma += e.tempos[concorrenteID];
-                    }
+					}
 					media = soma / ProvaValidaPor().Count;
 				}
 				aux.Add(contador, media);
 				contador++;
 			}
-            return aux;
-        }
+			return aux;
+		}
 
 		//TO DO: RETORNAR CONCORRENTE
 		// Alinea 6  - Apresentação do carro mais rápido / mais lento a efetuar uma prova válida;
 		public string CarroMaisRapido()
-        {
+		{
 			int min = 0;
 			string carromaisrapido = "";
 			foreach (int concorrenteID in ProvaValidaPor().Keys)
-            {
+			{
 				if (min == 0)
 				{
 					min = TempoTotalDoConcorrente(concorrenteID);
@@ -178,9 +178,9 @@ namespace Projeto1
 					min = TempoTotalDoConcorrente(concorrenteID);
 					carromaisrapido = concorrentesEmProva[concorrenteID].GetCarro();
 				}
-            }
+			}
 			return carromaisrapido;
-        }
+		}
 		public string CarroMaisLento()
 		{
 			int max = 0;
@@ -203,65 +203,84 @@ namespace Projeto1
 
 		//Metodo Auxiliar - De todos os que realizaram uma prova valida, retorna o vencedor
 		public int Vencedor()
-        {
+		{
 			int idDoVencedor = 0;
 			int tempototalmin = 0;
 			foreach (int concorrenteID in ProvaValidaPor().Keys)
-            {
+			{
 				if (TempoTotalDoConcorrente(concorrenteID) > tempototalmin)
-                {
+				{
 					tempototalmin = TempoTotalDoConcorrente(concorrenteID);
 					idDoVencedor = concorrenteID;
-                }
-            }
+				}
+			}
 			return idDoVencedor;
-        }
+		}
 
 		//Alinea 7 - Cálculo do tempo da etapa mais lenta do concorrente mais rápido a efetuar uma prova valida
 		public int PiorEtapaDoVencedor()
-        {
+		{
 			int max = 0;
-			foreach(int concorrenteID in concorrentesEmProva.Keys)
-            {
+			foreach (int concorrenteID in concorrentesEmProva.Keys)
+			{
 				if (concorrenteID == Vencedor())
 				{
-					foreach(Etapa e in etapasDaProva.Values)
-                    {
+					foreach (Etapa e in etapasDaProva.Values)
+					{
 						if (e.tempos[concorrenteID] > max)
 						{
 							max = e.tempos[concorrenteID];
 						}
-                    }
-                }
-            }
+					}
+				}
+			}
 			return max;
-        }
+		}
 
 		//Alinea 8 - Cálculo do menor tempo em que é possível efetuar a prova na totalidade, ou seja, soma
-					//dos tempos mínimos por etapa independentemente de terem sido efetuados por
-					//concorrentes com provas válidas ou não;
+		//dos tempos mínimos por etapa independentemente de terem sido efetuados por
+		//concorrentes com provas válidas ou não;
 
-	   public int MenorTempoPossivel()
-       {
-		int tempoMin = 0;
-	    foreach(Etapa e in etapasDaProva.Values)
-           {
+		public int MenorTempoPossivel()
+		{
+			int tempoMin = 0;
+			foreach (Etapa e in etapasDaProva.Values)
+			{
 				tempoMin += e.TempoMinimo();
-           }
+			}
 			return tempoMin;
-      }
+		}
 
-		//Alinha 9 
-		public float VelocidadeMedia()
-        {
+		//Alinea 9 
+		public float VelocidadeMedia(int concorrenteID)
+		{
 			//Calculo das velocidades medias totais = Tempo Total Prova / Distancia Total Prova 
 			float velocidademedia = 0;
-			
-			
+			float soma_tempos = 0;
+			float soma_distancia = 0;
+			if (ConcorrenteComProvaValida(concorrenteID) == true)
+			{
+				foreach (Etapa e in etapasDaProva.Values)
+				{
+					foreach (int i in e.tempos.Values)
+					{
+						soma_tempos += i;
+					}
+				}
+			}
 
-			return velocidademedia;
-        }
-}
-}
+			foreach(Etapa e in etapasDaProva.Values)
+            {
+				soma_distancia =+ e.distancia;
+            }
+
+			velocidademedia = soma_tempos / soma_distancia;
+
+				return velocidademedia;
+			}
+		}
+	}
+
+
 	
 	

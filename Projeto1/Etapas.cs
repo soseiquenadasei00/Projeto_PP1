@@ -24,7 +24,7 @@ namespace Projeto1
 		//EX: "E1_E2" // "P_E1" // "E2_C"
 
 
-		private float distancia;
+		public float distancia;
 
 		// construtor 
 		public Etapa(string designacao) 
