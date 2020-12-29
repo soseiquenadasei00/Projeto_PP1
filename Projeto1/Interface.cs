@@ -32,7 +32,7 @@ namespace Projeto1
                 }
             }
         }
-        
+
         public static void LerEtapas(Provas p, string nomeDoFicheiro)
         {
             using (StreamReader reader = new StreamReader(nomeDoFicheiro))
@@ -48,12 +48,34 @@ namespace Projeto1
 
                     p.AdicionarEtapa(novaEtapa);
                     novaEtapa.tempos.Add(Int32.Parse(valores[0]), Int32.Parse(valores[3]));
-                    
-                    
+
+
                     line = reader.ReadLine();
                 }
             }
         }
+
+        public static void LerDistancias(Provas p, string nomeficheiro)
+        {
+            using (StreamReader reader = new StreamReader(nomeficheiro))
+            {
+
+                string line = reader.ReadLine();
+
+                while (line != null)
+                {
+                    string[] valores = line.Split(' ');
+                    string DesignacaoEtapa = valores[0] + "_" + valores[1];
+                    string distancia_etapa;
+                    distancia_etapa = valores[2];
+                    Etapa novaEtapa = new Etapa(DesignacaoEtapa);
+                    novaEtapa.SetDistancia((float.Parse(valores[2])));
+                    //alterado na funcao set_distancia int para float;
+                }
+            }
+        }
+
+
 
 
 

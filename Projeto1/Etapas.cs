@@ -24,7 +24,7 @@ namespace Projeto1
 		//EX: "E1_E2" // "P_E1" // "E2_C"
 
 
-		private int distancia;
+		private float distancia;
 
 		// construtor 
 		public Etapa(string designacao) 
@@ -43,9 +43,9 @@ namespace Projeto1
 
 
 		//Metodos
-		public void SetDistancia(int n)
+		public void SetDistancia(float n)
         {
-			distancia = n;
+			this.distancia = n;
         }
 
 

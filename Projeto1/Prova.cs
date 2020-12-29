@@ -252,6 +252,15 @@ namespace Projeto1
       }
 
 		//Alinha 9 
+		public float VelocidadeMedia()
+        {
+			//Calculo das velocidades medias totais = Tempo Total Prova / Distancia Total Prova 
+			float velocidademedia = 0;
+			
+			
+
+			return velocidademedia;
+        }
 }
 }
 	
