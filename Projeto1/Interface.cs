@@ -21,6 +21,7 @@ namespace Projeto1
                     string[] valores = line.Split(' ');
                     Concorrente novoConcorrente = new Concorrente(Int32.Parse(valores[0]), valores[1], valores[2]);
                     p.AdicionarConcorrente(novoConcorrente);
+                    Console.WriteLine("Lido concorrente ID: {0}\t nome: {1} \tcarro: {2}", valores[0], valores[1], valores[2]);
                     line = reader.ReadLine();
                 }
             }
@@ -37,14 +38,46 @@ namespace Projeto1
                 {
                     string[] valores = line.Split(' ');
                     string designacaoEtapa = valores[1] + " " + valores[2];
-                    if (!p.etapasDaProva.ContainsKey(designacaoEtapa))
+
+
+                    
+                    //Define o comportamento caso a prova tenha apenas uma etapa, ou seja, P ate C
+                    if (designacaoEtapa == "P C")  
+                    {
+                        Console.WriteLine("Aviso: Comportamento suspeito. A prova contem apenas 1 etapa?");
+                        if (p.etapasDaProva.Count == 0)
+                        {
+                            if (!p.etapasDaProva.ContainsKey(designacaoEtapa))
+                            {
+                                Etapa novaEtapa = new Etapa(designacaoEtapa);
+                                p.AdicionarEtapa(novaEtapa);
+                                novaEtapa.AdicionarConcorrenteETempo(Int32.Parse(valores[0]), Int32.Parse(valores[3]));
+                                Console.WriteLine("Criada a etapa " + designacaoEtapa + "\tLido concorrenteID: {0}\t tempo: {1}", valores[0], valores[3]);
+                            }
+                            else
+                            {
+                                p.etapasDaProva[designacaoEtapa].AdicionarConcorrenteETempo(Int32.Parse(valores[0]), Int32.Parse(valores[3]));
+                                Console.WriteLine("Para a etapa " + designacaoEtapa + "\tLido concorrenteID: {0}\t tempo: {1}", valores[0], valores[3]);
+                            }
+                        }
+                        else Console.WriteLine("Erro Etapa " + designacaoEtapa + " invalida!!");
+                    }
+
+
+
+                    //Define o comportamento caso a prova tenha mais do que uma etapa
+
+                    else if (!p.etapasDaProva.ContainsKey(designacaoEtapa))
                     {
                         Etapa novaEtapa = new Etapa(designacaoEtapa);
                         p.AdicionarEtapa(novaEtapa);
                         novaEtapa.AdicionarConcorrenteETempo(Int32.Parse(valores[0]), Int32.Parse(valores[3]));
-                    } else
+                        Console.WriteLine("Criada a etapa " + designacaoEtapa + "\tLido concorrenteID: {0}\t tempo: {1}", valores[0], valores[3]);
+                    }
+                    else
                     {
                         p.etapasDaProva[designacaoEtapa].AdicionarConcorrenteETempo(Int32.Parse(valores[0]), Int32.Parse(valores[3]));
+                        Console.WriteLine("Para a etapa   " + designacaoEtapa + "\tLido concorrenteID: {0}\t tempo: {1}", valores[0], valores[3]);
                     }
 
                     line = reader.ReadLine();
@@ -68,7 +101,9 @@ namespace Projeto1
                         if (p.etapasDaProva.ContainsKey(designacaoEtapa))
                         {
                             p.etapasDaProva[designacaoEtapa].SetDistancia(distancia);
+                            Console.WriteLine("Para a etapa   " + designacaoEtapa + "\tLido distancia: {0}", distancia);
                         }
+                        else Console.WriteLine("Erro: A prova nao contem a etapa indicada.");
                     }
 
                     line = reader.ReadLine();
