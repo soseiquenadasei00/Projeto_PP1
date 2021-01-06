@@ -9,23 +9,20 @@ namespace Projeto1
 		//concorrenteID / concorrente
 		public Dictionary<int, Concorrente> concorrentesEmProva;
 		//numero da Etapa / etapa
-		public Dictionary<int, Etapa> etapasDaProva;
-		int numeroEtapas; //auxiliar, pouco importante, usado para adicionar etapas quando criamos o objeto provas
-
+		public Dictionary<string, Etapa> etapasDaProva;
+		
 
 		//Construtor e Metodos basicos
 		public Provas()
 		{
 			concorrentesEmProva = new Dictionary<int, Concorrente>();
-			etapasDaProva = new Dictionary<int, Etapa>();
-			numeroEtapas = 0;
+			etapasDaProva = new Dictionary<string, Etapa>();
 		}
 		public void AdicionarEtapa(Etapa e)
 		{
-			numeroEtapas++;
-			if (!etapasDaProva.ContainsValue(e))
+			if (!etapasDaProva.ContainsKey(e.designacao))
 			{
-				etapasDaProva.Add(numeroEtapas, e);
+				etapasDaProva.Add(e.designacao, e);
 			}
 		}
 

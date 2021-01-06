@@ -21,7 +21,7 @@ namespace Projeto1
 
 
 		public string designacao;
-		//EX: "E1_E2" // "P_E1" // "E2_C"
+		//EX: "E1 E2" // "P E1" // "E2 C"
 
 
 		public float distancia;
@@ -65,12 +65,12 @@ namespace Projeto1
 		// Função que retornar o menor tempo
 		public int TempoMinimo()
         {
-			int minimo = 9999999;
+			int minimo = 0;
 			
 			foreach(int tempo in tempos.Values)
             {
+				if (minimo == 0) minimo = tempo;
 				if (tempo < minimo) minimo = tempo;
-				
             } 
 			return minimo;
         }

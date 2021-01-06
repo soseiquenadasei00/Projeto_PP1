@@ -43,7 +43,7 @@ namespace Projeto1
                 while (line != null)
                 {
                     string[] valores = line.Split(' ');
-                    string DesignacaoEtapa = valores[1] + "_" + valores[2];
+                    string DesignacaoEtapa = valores[1] + " " + valores[2];
                     Etapa novaEtapa = new Etapa(DesignacaoEtapa);
 
                     p.AdicionarEtapa(novaEtapa);
@@ -65,12 +65,17 @@ namespace Projeto1
                 while (line != null)
                 {
                     string[] valores = line.Split(' ');
-                    string DesignacaoEtapa = valores[0] + "_" + valores[1];
-                    string distancia_etapa;
-                    distancia_etapa = valores[2];
-                    Etapa novaEtapa = new Etapa(DesignacaoEtapa);
-                    novaEtapa.SetDistancia((float.Parse(valores[2])));
-                    //alterado na funcao set_distancia int para float;
+                    string designacaoEtapa = valores[0] + " " + valores[1];
+                    float distancia = float.Parse(valores[2]);
+                    foreach (string etapa in p.etapasDaProva.Keys)
+                    {
+                        if (p.etapasDaProva.ContainsKey(designacaoEtapa))
+                        {
+                            p.etapasDaProva[designacaoEtapa].distancia = distancia;
+                        }
+                    }
+
+                    line = reader.ReadLine();
                 }
             }
         }

@@ -17,6 +17,7 @@ namespace Projeto1
 			Provas rally2 = new Provas();
 			Interface.LerConcorrentes(rally2, "concorrentesteste.txt");
 			Interface.LerEtapas(rally2, "etapas.txt");
+			Interface.LerDistancias(rally2, "Distancias.txt");
 			return;
 
 
