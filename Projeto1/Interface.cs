@@ -8,13 +8,6 @@ namespace Projeto1
     public class Interface
     {
 
-        //1 Joao Subaru
-        //2 Maria Subaru
-        //3 Joana BMW
-        //5 Jose Lancia
-        //6 Carlos Audi
-
-
         public static void LerConcorrentes(Provas p, string nomeDoFicheiro)
         {
 
@@ -43,12 +36,16 @@ namespace Projeto1
                 while (line != null)
                 {
                     string[] valores = line.Split(' ');
-                    string DesignacaoEtapa = valores[1] + " " + valores[2];
-                    Etapa novaEtapa = new Etapa(DesignacaoEtapa);
-
-                    p.AdicionarEtapa(novaEtapa);
-                    novaEtapa.tempos.Add(Int32.Parse(valores[0]), Int32.Parse(valores[3]));
-
+                    string designacaoEtapa = valores[1] + " " + valores[2];
+                    if (!p.etapasDaProva.ContainsKey(designacaoEtapa))
+                    {
+                        Etapa novaEtapa = new Etapa(designacaoEtapa);
+                        p.AdicionarEtapa(novaEtapa);
+                        novaEtapa.AdicionarConcorrenteETempo(Int32.Parse(valores[0]), Int32.Parse(valores[3]));
+                    } else
+                    {
+                        p.etapasDaProva[designacaoEtapa].AdicionarConcorrenteETempo(Int32.Parse(valores[0]), Int32.Parse(valores[3]));
+                    }
 
                     line = reader.ReadLine();
                 }
@@ -59,7 +56,6 @@ namespace Projeto1
         {
             using (StreamReader reader = new StreamReader(nomeficheiro))
             {
-
                 string line = reader.ReadLine();
 
                 while (line != null)
@@ -71,7 +67,7 @@ namespace Projeto1
                     {
                         if (p.etapasDaProva.ContainsKey(designacaoEtapa))
                         {
-                            p.etapasDaProva[designacaoEtapa].distancia = distancia;
+                            p.etapasDaProva[designacaoEtapa].SetDistancia(distancia);
                         }
                     }
 
@@ -79,14 +75,5 @@ namespace Projeto1
                 }
             }
         }
-
-
-
-
-
-
-
     }
-
-
 }

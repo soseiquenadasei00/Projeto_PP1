@@ -249,19 +249,22 @@ namespace Projeto1
 		}
 
 		//Alinea 9 
-		public float VelocidadeMedia(int concorrenteID)
+		public float VelocidadeMedia()
 		{
 			//Calculo das velocidades medias totais = Tempo Total Prova / Distancia Total Prova 
 			float velocidademedia = 0;
 			float soma_tempos = 0;
 			float soma_distancia = 0;
-			if (ConcorrenteComProvaValida(concorrenteID) == true)
+			foreach (int concorrenteID in concorrentesEmProva.Keys)
 			{
-				foreach (Etapa e in etapasDaProva.Values)
+				if (ConcorrenteComProvaValida(concorrenteID) == true)
 				{
-					foreach (int i in e.tempos.Values)
+					foreach (Etapa e in etapasDaProva.Values)
 					{
-						soma_tempos += i;
+						foreach (int i in e.tempos.Values)
+						{
+							soma_tempos += i;
+						}
 					}
 				}
 			}

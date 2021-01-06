@@ -7,17 +7,52 @@ namespace Projeto1
 	{
 		static void Main(string[] args)
 		{
-			// Read each line of the file into a string array. Each element of the array is one line of the file.
-			//encontrado num documento da microsoft e feito o glorioso copy-paste
-			//string[] lines = System.IO.File.ReadAllLines(@"C:\Users\Public\TestFolder\Ficheiro_que_o_prof_vai_mandar.txt");
-
-			
-			Console.WriteLine("TESTE");
-
 			Provas rally2 = new Provas();
 			Interface.LerConcorrentes(rally2, "concorrentesteste.txt");
 			Interface.LerEtapas(rally2, "etapas.txt");
 			Interface.LerDistancias(rally2, "Distancias.txt");
+
+			//Metodos da classe etapa
+
+			Console.WriteLine("tempo medio para a etapa P E1:  " + rally2.etapasDaProva["P E1"].TempoMedio()); 
+			Console.WriteLine("concorrente 1 participou da etapa E1 E2?" + rally2.etapasDaProva["E1 E2"].ConcorrenteParticipou(1)); //retorna true
+
+			Console.WriteLine("tempo medio para a etapa E2 C:  " + rally2.etapasDaProva["E2 C"].TempoMedio());
+
+
+			//metodos da classe prova
+
+			Console.WriteLine("numero de concorrentes em prova :" + rally2.NumeroConcorrentesEmProva()); 
+			Console.WriteLine("Concorrente 1 tem prova valida?" + rally2.ConcorrenteComProvaValida(1)); 
+			Console.WriteLine("tempo total do concorrente 1 : " + rally2.TempoTotalDoConcorrente(1));
+			Console.WriteLine("Velocidade Media da etapa 1:  " + rally2.VelocidadeMedia());
+
+			rally2.printTempoDecre();
+
+			Console.WriteLine("SEPARADOR");
+
+			SortedList<int, float> paraPrintar2 = rally2.TempoDasEtapasParaProvasValidas();
+			for (int i = 0; i < paraPrintar2.Count; i++)
+			{
+				Console.WriteLine("etapa: {0} ,tempo medio da etapa: {1} ", paraPrintar2.Keys[i], paraPrintar2.Values[i]);
+			}
+
+			Console.WriteLine("Carro do vencedor: {0} ", rally2.CarroMaisRapido());
+
+			Console.WriteLine("Pior etapa do vencedor {0} ", rally2.PiorEtapaDoVencedor());
+
+
+
+
+
+
+
+
+
+
+
+
+
 			return;
 
 
@@ -74,10 +109,10 @@ namespace Projeto1
 
 			Console.WriteLine("SEPARADOR");
 
-			SortedList<int, float> paraPrintar2 = rally1.TempoDasEtapasParaProvasValidas();
-			for (int i = 0; i < paraPrintar2.Count; i++)
+			SortedList<int, float> paraPrintar3 = rally1.TempoDasEtapasParaProvasValidas();
+			for (int i = 0; i < paraPrintar3.Count; i++)
 			{
-				Console.WriteLine("etapa: {0} ,tempo medio da etapa: {1} ", paraPrintar2.Keys[i], paraPrintar2.Values[i]);
+				Console.WriteLine("etapa: {0} ,tempo medio da etapa: {1} ", paraPrintar3.Keys[i], paraPrintar3.Values[i]);
 			}
 
 			Console.WriteLine("Carro do vencedor: {0} " , rally1.CarroMaisRapido());
@@ -85,29 +120,6 @@ namespace Projeto1
             Console.WriteLine("Pior etapa do vencedor {0} ", rally1.PiorEtapaDoVencedor());
 
 
-
-
-
-
-
-
-
-
-			/* 
-			exemplo de ficheiro de testo e consequentemente do array de strings - lines
-			2 E1 E2 21672
-			1 P E1 10501
-			1 E1 E2 37203
-			2 P E1 12383
-			1 E2 C 28465
-			2 E2 C 23567
-			*/
-
-			// ou seja, sera sempre 1 numero inteiro, seguido de um espaço, seguido de uma string(?) seguido de outro espaço, seguido por um tempo. Para cada etapa.
-
-
-			//sera que conseguimos transformar esses elementos da primeira string(que é uma linha toda) numa string normal(1 elemento = 1 caracter) assim?
-			//string informacoes = (string)string[] lines;
 
 		}
 	}

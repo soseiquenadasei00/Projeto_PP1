@@ -38,8 +38,8 @@ namespace Projeto1
 		//FUNCAO A CORRER PARA CADA CONCORRENTE QUE EFETUOU UMA QUALQUER ETAPA
 		public void AdicionarConcorrenteETempo(int concorrenteID, int tempo)
         {
-			tempos.Add(concorrenteID, tempo);
-        }
+			if (!tempos.ContainsKey(concorrenteID)) tempos.Add(concorrenteID, tempo);
+		}
 
 
 		//Metodos

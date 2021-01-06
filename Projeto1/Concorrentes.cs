@@ -53,5 +53,4 @@ namespace Projeto1
             this.concorrenteID = concorrenteID;
         }
     }
-    
 }
