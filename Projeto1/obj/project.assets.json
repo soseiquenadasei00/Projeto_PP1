@@ -8,23 +8,19 @@
     ".NETCoreApp,Version=v3.1": []
   },
   "packageFolders": {
-    "C:\\Users\\joaos\\.nuget\\packages\\": {},
-    "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
+    "C:\\Users\\EduardoCacciariMiral\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\joaos\\source\\repos\\Projeto_PP1\\Projeto1\\Projeto1.csproj",
+      "projectUniqueName": "C:\\Users\\EduardoCacciariMiral\\source\\repos\\soseiquenadasei00\\Projeto_PP1\\Projeto1\\Projeto1.csproj",
       "projectName": "Projeto1",
-      "projectPath": "C:\\Users\\joaos\\source\\repos\\Projeto_PP1\\Projeto1\\Projeto1.csproj",
-      "packagesPath": "C:\\Users\\joaos\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\joaos\\source\\repos\\Projeto_PP1\\Projeto1\\obj\\",
+      "projectPath": "C:\\Users\\EduardoCacciariMiral\\source\\repos\\soseiquenadasei00\\Projeto_PP1\\Projeto1\\Projeto1.csproj",
+      "packagesPath": "C:\\Users\\EduardoCacciariMiral\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\EduardoCacciariMiral\\source\\repos\\soseiquenadasei00\\Projeto_PP1\\Projeto1\\obj\\",
       "projectStyle": "PackageReference",
-      "fallbackFolders": [
-        "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
-      ],
       "configFilePaths": [
-        "C:\\Users\\joaos\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\EduardoCacciariMiral\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -64,7 +60,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.100\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.101\\RuntimeIdentifierGraph.json"
       }
     }
   }
