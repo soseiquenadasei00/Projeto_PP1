@@ -19,10 +19,10 @@ namespace Projeto1
                 while (line != null)
                 {
                     string[] valores = line.Split(' ');
-                    Concorrente novoConcorrente = new Concorrente(Int32.Parse(valores[0]), valores[1], valores[2]);
-                    p.AdicionarConcorrente(novoConcorrente);
-                    Console.WriteLine("Lido concorrente ID: {0}\t nome: {1} \tcarro: {2}", valores[0], valores[1], valores[2]);
-                    line = reader.ReadLine();
+                    Concorrente novoConcorrente = new Concorrente(Int32.Parse(valores[0]), valores[1], valores[2]); //cria um objeto concorrente com os dados lidos na linha. EX: 2 Joao Subaru
+                    p.AdicionarConcorrente(novoConcorrente); //Guarda esse objeto no dicionario ConcorrentesEmProva da classe provas. O metodo nao adiciona se o numero do concorrente ja estiver no dicionario
+                    Console.WriteLine("Lido concorrente ID: {0}\t nome: {1} \tcarro: {2}", valores[0], valores[1], valores[2]); 
+                    line = reader.ReadLine(); //objeto streamreader passa a ler a nova linha
                 }
             }
         }
@@ -33,7 +33,7 @@ namespace Projeto1
             {
 
                 string line = reader.ReadLine();
-                int maximo = 0;
+                int maximo = 0; //utilizado para guardar o valor inteiro do char ponto de chegada DE UMA ETAPA, se esse ponto de chegada for diferente de C.
 
                 while (line != null)
                 {
@@ -42,7 +42,7 @@ namespace Projeto1
                    
 
 
-                    if (valores[2] != "C")
+                    if (valores[2] != "C")  //Ler comentario anterior.
                     {
                         for (int i = 1; i < 2; i++)
                         {
@@ -57,11 +57,11 @@ namespace Projeto1
                         Console.WriteLine("Aviso: Comportamento suspeito. A prova contem apenas 1 etapa?");
                         if (p.etapasDaProva.Count == 0)
                         {
-                            if (!p.etapasDaProva.ContainsKey(designacaoEtapa))
+                            if (!p.etapasDaProva.ContainsKey(designacaoEtapa)) //Apenas inicializaremos um objeto etapa, caso essa etapa nao esteja no dicionario EtapasDaProva na classe Provas
                             {
                                 Etapa novaEtapa = new Etapa(designacaoEtapa);
                                 p.AdicionarEtapa(novaEtapa);
-                                novaEtapa.AdicionarConcorrenteETempo(Int32.Parse(valores[0]), Int32.Parse(valores[3]));
+                                novaEtapa.AdicionarConcorrenteETempo(Int32.Parse(valores[0]), Int32.Parse(valores[3])); //Sempre que criamos uma nova etapa, guardamos ela na classe Provas.
                                 Console.WriteLine("Criada a etapa " + designacaoEtapa + "\tLido concorrenteID: {0}\t tempo: {1}", valores[0], valores[3]);
                             }
                             else
@@ -116,7 +116,7 @@ namespace Projeto1
                         }
 
                         //OPCAO 3
-                        else if (((char)valores[1][1]) == (((char)valores[2][1]) - 1)) //Se vamos ter uma etapa no meio, ou seja, nem partida nem chegada, os E tem que ser adjacentes
+                        else if (((char)valores[1][1]) == (((char)valores[2][1]) - 1)) //Se vamos ter uma etapa no meio, ou seja, nem partida nem chegada, o valor do segundo E tem que ser igual o valor do primeiro E + 1
                         {
                             if (!p.etapasDaProva.ContainsKey(designacaoEtapa))
                             {
@@ -143,8 +143,8 @@ namespace Projeto1
         } //fim do metodo
 
 
-        public static void LerDistancias(Provas p, string nomeficheiro)
-        {
+        public static void LerDistancias(Provas p, string nomeficheiro) //Este metodo nunca cria uma Etapa nova, apenas adiciona na variavel Distancia, o valor que ler para uma etapa
+        {                                                               //Que ja esteja no dicionario EtapasDaProva da classe Prova. 
             using (StreamReader reader = new StreamReader(nomeficheiro))
             {
                 string line = reader.ReadLine();
@@ -154,14 +154,14 @@ namespace Projeto1
                     string[] valores = line.Split(' ');
                     string designacaoEtapa = valores[0] + " " + valores[1];
                     float distancia = float.Parse(valores[2]);
-                    foreach (string etapa in p.etapasDaProva.Keys)
+                    foreach (string etapa in p.etapasDaProva.Keys) //Percorremos todas as chaves do dicionario EtapasDaProva
                     {
-                        if (p.etapasDaProva.ContainsKey(designacaoEtapa))
+                        if (p.etapasDaProva.ContainsKey(designacaoEtapa)) //Se existe uma chave igual a string que nomeia a Etapa
                         {
-                            p.etapasDaProva[designacaoEtapa].SetDistancia(distancia);
+                            p.etapasDaProva[designacaoEtapa].SetDistancia(distancia); //Nessa mesma etapa adicionamos a distancia lida.
                             Console.WriteLine("Para a etapa   " + designacaoEtapa + "\tLido distancia: {0}", distancia);
                         }
-                        else Console.WriteLine("Erro: A prova nao contem a etapa indicada.");
+                        else Console.WriteLine("Erro: A prova nao contem a etapa indicada."); //Caso Contrario, avisamos o utilizador que a prova nao contem a etapa indicada.
                     }
 
                     line = reader.ReadLine();

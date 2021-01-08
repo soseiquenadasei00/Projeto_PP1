@@ -62,6 +62,7 @@ namespace Projeto1
 
 			return media;
         }
+
 		// Função que retornar o menor tempo
 		public int TempoMinimo()
         {

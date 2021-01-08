@@ -10,7 +10,7 @@ namespace Projeto1
 		public Dictionary<int, Concorrente> concorrentesEmProva;
 		//numero da Etapa / etapa
 		public Dictionary<string, Etapa> etapasDaProva;
-		
+
 
 		//Construtor e Metodos basicos
 		public Provas()
@@ -44,6 +44,7 @@ namespace Projeto1
 
 
 		//Aux, testa se um concorrente c tem prova valida
+		//Se nao existe nenhuma etapa da prova que o concorrente nao tenha participado, entao tem a prova valida.
 		public bool ConcorrenteComProvaValida(int concorrenteID)
 		{
 			foreach (Etapa e in etapasDaProva.Values)
@@ -60,11 +61,11 @@ namespace Projeto1
 			int soma = 0;
 			if (etapasDaProva.Count != 0)
 			{
-				foreach (Etapa e in etapasDaProva.Values)
+				foreach (Etapa e in etapasDaProva.Values) //Percorremos todas as etapas da prova
 				{
-					foreach (int i in e.tempos.Keys)
+					foreach (int i in e.tempos.Keys) //Percorremos todos os tempos de todos concorrentes de uma etapa
 					{
-						if (i == concorrenteID)
+						if (i == concorrenteID) //Guardamos a soma de todos os tempos de um concorrente numa variavel que sera retornada pelo metodo
 						{
 							soma += e.tempos[concorrenteID];
 						}
@@ -76,7 +77,7 @@ namespace Projeto1
 			return soma;
 		}
 
-		//Metodo auxilar, para fazer tudo o resto, nao mexer!!!!!
+		//Retorna uma lista em ordem crescente com o numero do concorrente e a soma dos tempos das suas etapas, ou seja, o seu tempo total. Apenas para concorrentes com provas Validas!
 		public SortedList<int, int> ProvaValidaPor()
 		{
 
@@ -94,7 +95,7 @@ namespace Projeto1
 		}
 
 
-		//Nois Fez esta monstruosidade, que troca as chaves com os valores da funcao a cima para poder printar em ordem descrecente depois
+		//Nois Fez esta monstruosidade, que troca as chaves com os valores da funcao ProvaValidaPor, para satisfazer a alinea 3 do enunciado
 		//Alinea 3 - Lista ordenada em ordem descrescente com todos concorrentes que efetuaram uma prova valida. 
 		//Alinea 4 - Para pegar o numero de concorrentes -- chamar a funcao com .count. 
 		public SortedList<int, int> ProvaValidaPorInversa()
@@ -123,6 +124,7 @@ namespace Projeto1
 			}
 
 		}
+		//Ambos os metodos devem ser chamados em conjunto!
 		//A monstruosidade acaba aqui.
 
 
@@ -134,7 +136,11 @@ namespace Projeto1
 			return ProvaValidaPor().Count;
 		}
 
+
+		//CHECKAR ISTO NO PAPEL, NAO TENHO A CERTEZA SE ESTE METODO RETORNA A LISTA POR ORDEM DE OCORRENCIA DAS ETAPAS!!!!!
 		// Alinea 5 - Apresentacao  das médias dos tempos por etapa e ordenado por ordem de ocorrência das etapas para provas validas.
+		//Nao seria possivel criar um metodo que retorna a media dos tempos de uma etapa para provas validas na classe etapa
+		//Pois, nao ha maneira de verificar, na classe etapa, se um concorrente tem ou nao a prova valida.
 		public SortedList<int, float> TempoDasEtapasParaProvasValidas()
 		{
 			int contador = 1;
@@ -147,9 +153,9 @@ namespace Projeto1
 				{
 					if (ConcorrenteComProvaValida(concorrenteID))
 					{
-						soma += e.tempos[concorrenteID];
+						soma += e.tempos[concorrenteID]; //Para cada concorrente que fez uma dada etapa, se esse concorrente tem a prova valida, entao guardamos o tempo dessa etapa na variavel soma
 					}
-					media = soma / ProvaValidaPor().Count;
+					media = soma / ProvaValidaPor().Count;  //Para ter a media do tempo de cada etapa para provas validas, dividimos essa soma pelo numero de concorrentes com prova valida.
 				}
 				aux.Add(contador, media);
 				contador++;
@@ -157,7 +163,6 @@ namespace Projeto1
 			return aux;
 		}
 
-		//TO DO: RETORNAR CONCORRENTE
 		// Alinea 6  - Apresentação do carro mais rápido / mais lento a efetuar uma prova válida;
 		public string CarroMaisRapido()
 		{
@@ -165,19 +170,21 @@ namespace Projeto1
 			string carromaisrapido = "";
 			foreach (int concorrenteID in ProvaValidaPor().Keys)
 			{
-				if (min == 0)
+				if (min == 0) //Quando verificamos pela primeira vez o tempo de um concorrente, o tempo minimo que é possivel fazer uma prova será o tempo desse concorrente!
 				{
 					min = TempoTotalDoConcorrente(concorrenteID);
-					carromaisrapido = concorrentesEmProva[concorrenteID].GetCarro();
+					carromaisrapido = concorrentesEmProva[concorrenteID].GetCarro(); //Guardamos entao o carro desse concorrente!
 				}
-				else if (TempoTotalDoConcorrente(concorrenteID) < min)
-				{
+				else if (TempoTotalDoConcorrente(concorrenteID) < min) //Comparamos o tempo de todos os outros concorrentes com o tempo minimo que um concorrente com prova valida fez a prova.
+				{                                                       // Atualizando sempre a variavel minimo, com o menor tempototal que encontrarmos.
 					min = TempoTotalDoConcorrente(concorrenteID);
-					carromaisrapido = concorrentesEmProva[concorrenteID].GetCarro();
+					carromaisrapido = concorrentesEmProva[concorrenteID].GetCarro();  //Guardamos o carro do concorrente que tem o menor tempo total de prova
 				}
 			}
 			return carromaisrapido;
 		}
+
+		//Exatamente o mesmo que o metodo anterior, no entanto para o concorrente com o carro mais lento
 		public string CarroMaisLento()
 		{
 			int max = 0;
@@ -205,7 +212,12 @@ namespace Projeto1
 			int tempototalmin = 0;
 			foreach (int concorrenteID in ProvaValidaPor().Keys)
 			{
-				if (TempoTotalDoConcorrente(concorrenteID) > tempototalmin)
+				if (tempototalmin == 0)
+				{
+					tempototalmin = TempoTotalDoConcorrente(concorrenteID);
+					idDoVencedor = concorrenteID;
+				}
+				if (TempoTotalDoConcorrente(concorrenteID) < tempototalmin)
 				{
 					tempototalmin = TempoTotalDoConcorrente(concorrenteID);
 					idDoVencedor = concorrenteID;
@@ -220,11 +232,11 @@ namespace Projeto1
 			int max = 0;
 			foreach (int concorrenteID in concorrentesEmProva.Keys)
 			{
-				if (concorrenteID == Vencedor())
+				if (concorrenteID == Vencedor()) //Se é o concorrente mais rapido a efetuar uma prova valida, entao é o vencedor.
 				{
-					foreach (Etapa e in etapasDaProva.Values)
+					foreach (Etapa e in etapasDaProva.Values) //Estamos entao a verificar os tempos de todas as etapas do vencedor
 					{
-						if (e.tempos[concorrenteID] > max)
+						if (e.tempos[concorrenteID] > max) //Guardamos entao a etapa com o pior tempo
 						{
 							max = e.tempos[concorrenteID];
 						}
@@ -241,7 +253,7 @@ namespace Projeto1
 		public int MenorTempoPossivel()
 		{
 			int tempoMin = 0;
-			foreach (Etapa e in etapasDaProva.Values)
+			foreach (Etapa e in etapasDaProva.Values) //Para todas as etapas, somamos em TempoMin o tempo minimo dessa etapa
 			{
 				tempoMin += e.TempoMinimo();
 			}
@@ -252,35 +264,26 @@ namespace Projeto1
 		public float VelocidadeMedia()
 		{
 			//Calculo das velocidades medias totais = Tempo Total Prova / Distancia Total Prova 
-			float velocidademedia = 0;
 			float soma_tempos = 0;
 			float soma_distancia = 0;
 			foreach (int concorrenteID in concorrentesEmProva.Keys)
 			{
-				if (ConcorrenteComProvaValida(concorrenteID) == true)
+				if (ConcorrenteComProvaValida(concorrenteID)) //Para todos os concorrentes com prova valida, somamos o tempo total desses concorrentes
 				{
-					foreach (Etapa e in etapasDaProva.Values)
-					{
-						foreach (int i in e.tempos.Values)
-						{
-							soma_tempos += i;
-						}
-					}
+					soma_tempos += TempoTotalDoConcorrente(concorrenteID);
 				}
 			}
 
-			foreach(Etapa e in etapasDaProva.Values)
-            {
-				soma_distancia =+ e.distancia;
-            }
-
-			velocidademedia = soma_tempos / soma_distancia;
-
-				return velocidademedia;
+			foreach (Etapa e in etapasDaProva.Values)
+			{
+				soma_distancia = +e.distancia; //Para cada etapa da prova somamos as distancias
 			}
+
+			return (soma_tempos / soma_distancia);  //retornamos a soma dos tempos dividido pela soma das distancias
+
 		}
 	}
 
-
+}
 	
 	
