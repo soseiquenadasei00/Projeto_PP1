@@ -16,7 +16,7 @@ namespace Projeto1
 				Console.WriteLine("Erro ao ler etapas, confira que nao escreveu lagartixa!");
 			}
 
-			Interface.LerDistancias(rally2, "distancias.txt");
+			Interface.LerDistancias(rally2, "Distancias.txt");
 
 			//Metodos da classe etapa
 
