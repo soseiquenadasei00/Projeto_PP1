@@ -8,7 +8,7 @@ namespace Projeto1
 		static void Main(string[] args)
 		{
 			Provas rally2 = new Provas();
-			Interface.LerConcorrentes(rally2, "concorrentesteste.txt");
+			Interface.LerConcorrentes(rally2, "concorrentes.txt");
 			try { Interface.LerEtapas(rally2, "etapas.txt"); 
 			
 			}
@@ -16,7 +16,7 @@ namespace Projeto1
 				Console.WriteLine("Erro ao ler etapas, confira que nao escreveu lagartixa!");
 			}
 
-			Interface.LerDistancias(rally2, "Distancias.txt");
+			Interface.LerDistancias(rally2, "distancias.txt");
 
 			//Metodos da classe etapa
 
