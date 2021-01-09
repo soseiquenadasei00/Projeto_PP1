@@ -42,7 +42,7 @@ namespace Projeto1
                    
 
 
-                    if (valores[2] != "C")  //Ler comentario anterior.
+                    if (valores[2].Length >= 2)  //Ler comentario anterior. //Nao funciona com mais do que E9-E10 etapas
                     {
                         for (int i = 1; i < 2; i++)
                         {
