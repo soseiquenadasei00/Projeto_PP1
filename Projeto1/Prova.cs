@@ -120,7 +120,7 @@ namespace Projeto1
 			SortedList<int, int> paraPrintar = ProvaValidaPorInversa();
 			for (int i = paraPrintar.Count - 1; i >= 0; i--)
 			{
-				Console.WriteLine("Numero de Concorrente: {0} , tempo: {1} ", paraPrintar.Values[i], paraPrintar.Keys[i]);
+				Console.WriteLine("Numero de Concorrente: {0} , tempo total da prova: {1} ", paraPrintar.Values[i], paraPrintar.Keys[i]);
 			}
 
 		}
@@ -141,10 +141,9 @@ namespace Projeto1
 		// Alinea 5 - Apresentacao  das médias dos tempos por etapa e ordenado por ordem de ocorrência das etapas para provas validas.
 		//Nao seria possivel criar um metodo que retorna a media dos tempos de uma etapa para provas validas na classe etapa
 		//Pois, nao ha maneira de verificar, na classe etapa, se um concorrente tem ou nao a prova valida.
-		public SortedList<int, float> TempoDasEtapasParaProvasValidas()
+		public SortedList<string, float> TempoDasEtapasParaProvasValidas()
 		{
-			int contador = 1;
-			SortedList<int, float> aux = new SortedList<int, float>();
+			SortedList<string, float> aux = new SortedList<string, float>();
 			foreach (Etapa e in etapasDaProva.Values)
 			{
 				int soma = 0;
@@ -157,8 +156,7 @@ namespace Projeto1
 					}
 					media = soma / ProvaValidaPor().Count;  //Para ter a media do tempo de cada etapa para provas validas, dividimos essa soma pelo numero de concorrentes com prova valida.
 				}
-				aux.Add(contador, media);
-				contador++;
+				aux.Add(e.designacao, media);
 			}
 			return aux;
 		}
