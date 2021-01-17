@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 
 namespace Projeto1
 {
@@ -41,10 +42,10 @@ namespace Projeto1
 
 
 				Console.WriteLine("Por favor, introduza o nome do ficheiro com as distancias");
-				string ficheiroDasDistancias = Console.ReadLine();
+				string ficheirodasdistancias = Console.ReadLine();
 				try
 				{
-					Interface.LerDistancias(rally2, ficheiroDasDistancias);
+					Interface.LerDistancias(rally2, ficheirodasdistancias);
 				}
 				catch
 				{
@@ -127,7 +128,7 @@ namespace Projeto1
 						break;
                     case 9:
 						Console.Clear();
-						Console.WriteLine();
+						rally2.TabelaClassificativa(rally2);
 						Console.WriteLine("\n" + "\n" + "\n");
 						break;
 					case 0:

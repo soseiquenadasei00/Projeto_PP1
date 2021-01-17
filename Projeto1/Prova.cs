@@ -284,7 +284,7 @@ namespace Projeto1
 
 
 		//Tabela Classificativa
-		public void TabelaClassificativa()
+		public void TabelaClassificativa(Provas p)
 		{
 			DataTable tabela = new DataTable();
 			tabela.Columns.Add("Posicao");
@@ -295,12 +295,14 @@ namespace Projeto1
 			tabela.Columns.Add("Diferenca Anterior");
 			tabela.Columns.Add("Diferenca Lider");
 
-			
-
+			foreach(int concorrenteID in concorrentesEmProva.Keys)
+            {
+				tabela.Rows.Add(p.Vencedor(),p.Vencedor());
             }
-		
 
-		
+		}
+
+
 
 
 	}
