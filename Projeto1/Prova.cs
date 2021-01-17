@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 
 namespace Projeto1
 {
@@ -280,6 +281,28 @@ namespace Projeto1
 			return (soma_tempos / soma_distancia);  //retornamos a soma dos tempos dividido pela soma das distancias
 
 		}
+
+
+		//Tabela Classificativa
+		public void TabelaClassificativa()
+		{
+			DataTable tabela = new DataTable();
+			tabela.Columns.Add("Posicao");
+			tabela.Columns.Add("Numero");
+			tabela.Columns.Add("Nome");
+			tabela.Columns.Add("Carro");
+			tabela.Columns.Add("Tempo da prova");
+			tabela.Columns.Add("Diferenca Anterior");
+			tabela.Columns.Add("Diferenca Lider");
+
+			
+
+            }
+		
+
+		
+
+
 	}
 
 }

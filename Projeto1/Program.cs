@@ -10,7 +10,6 @@ namespace Projeto1
 
 		    Provas rally2 = new Provas();
 			int opc = 1;
-
 			Console.WriteLine("\t" + "\t" + "Competição de carros do EDJD");
 			Console.WriteLine("\n" + "\n");
 			while (opc != 0)
