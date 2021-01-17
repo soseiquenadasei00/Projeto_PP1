@@ -88,3 +88,4 @@ C:\Users\joaos\source\repos\PP1\PROJETO\Projeto1\obj\Debug\netcoreapp3.1\Projeto
 C:\Users\joaos\source\repos\PP1\PROJETO\Projeto1\obj\Debug\netcoreapp3.1\Projeto1.dll
 C:\Users\joaos\source\repos\PP1\PROJETO\Projeto1\obj\Debug\netcoreapp3.1\Projeto1.pdb
 C:\Users\joaos\source\repos\PP1\PROJETO\Projeto1\obj\Debug\netcoreapp3.1\Projeto1.genruntimeconfig.cache
+C:\Users\joaos\Source\Repos\soseiquenadasei00\Projeto_PP1\Projeto1\obj\Debug\netcoreapp3.1\Projeto1.csprojAssemblyReference.cache
