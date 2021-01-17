@@ -283,7 +283,7 @@ namespace Projeto1
 		}
 
 
-		//Tabela Classificativa
+		//Tabela Classificativa - Alínea 10
 		public void TabelaClassificativa(Provas p)
 		{
 			DataTable tabela = new DataTable();
@@ -295,10 +295,19 @@ namespace Projeto1
 			tabela.Columns.Add("Diferenca Anterior");
 			tabela.Columns.Add("Diferenca Lider");
 
-			foreach(int concorrenteID in concorrentesEmProva.Keys)
+			foreach(int i in concorrentesEmProva.Keys)
             {
-				tabela.Rows.Add(p.Vencedor(),p.Vencedor());
-            }
+				int posicao = concorrentesEmProva[i].GetPosicao();
+				int numero = concorrentesEmProva[i].GetID();
+				string nome = concorrentesEmProva[i].Getnome();
+				string carro = concorrentesEmProva[i].GetCarro();
+				int tempo_total = TempoTotalDoConcorrente(numero);
+				int distancia_anterior = TempoTotalDoConcorrente(posicao) - TempoTotalDoConcorrente(posicao - 1);
+				int distancia_lider = TempoTotalDoConcorrente(posicao = 1) - tempo_total;			
+				}
+
+
+			}
 
 		}
 
