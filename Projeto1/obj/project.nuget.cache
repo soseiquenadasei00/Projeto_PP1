@@ -1,15 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "LBtoHEkk7IyrEcnHqok9NI4c4F+iPNX4XRsOn0prtge+8mtDwlB6Y2EX8X26Cty3qNXjTkH2FadWYxwoJHMTfg==",
+  "dgSpecHash": "lX4obKMqJCjIcmvV0TmVNjRbgjrEECj23WNbZKY7ndVS0ARbMN8uf5N/2igpomA3JFPkVXH+2vKvxrC6Gk0aHw==",
   "success": true,
-  "projectFilePath": "C:\\Users\\joaos\\Source\\Repos\\soseiquenadasei00\\Projeto_PP1\\Projeto1\\Projeto1.csproj",
+  "projectFilePath": "C:\\Users\\joaos\\source\\repos\\soseiquenadasei00\\Projeto_PP1\\Projeto1\\Projeto1.csproj",
   "expectedPackageFiles": [],
-  "logs": [
-    {
-      "code": "Undefined",
-      "level": "Warning",
-      "warningLevel": 1,
-      "message": "Problem reading the cache file C:\\Users\\joaos\\Source\\Repos\\soseiquenadasei00\\Projeto_PP1\\Projeto1\\obj\\project.nuget.cache : Invalid property identifier character: <. Path 'version', line 3, position 0."
-    }
-  ]
+  "logs": []
 }

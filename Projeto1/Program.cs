@@ -128,7 +128,7 @@ namespace Projeto1
 						break;
                     case 9:
 						Console.Clear();
-						rally2.TabelaClassificativa(rally2);
+						rally2.TabelaClassificativa();
 						Console.WriteLine("\n" + "\n" + "\n");
 						break;
 					case 0:

@@ -284,7 +284,7 @@ namespace Projeto1
 
 
 		//Tabela Classificativa - Alínea 10
-		public void TabelaClassificativa(Provas p)
+		public void TabelaClassificativa()
 		{
 			DataTable tabela = new DataTable();
 			tabela.Columns.Add("Posicao");
@@ -295,24 +295,35 @@ namespace Projeto1
 			tabela.Columns.Add("Diferenca Anterior");
 			tabela.Columns.Add("Diferenca Lider");
 
+			int posicao, numero, tempo_total, distancia_anterior, distancia_lider;
+			string nome, carro;
+
 			foreach(int i in concorrentesEmProva.Keys)
             {
-				int posicao = concorrentesEmProva[i].GetPosicao();
-				int numero = concorrentesEmProva[i].GetID();
-				string nome = concorrentesEmProva[i].Getnome();
-				string carro = concorrentesEmProva[i].GetCarro();
-				int tempo_total = TempoTotalDoConcorrente(numero);
-				int distancia_anterior = TempoTotalDoConcorrente(posicao) - TempoTotalDoConcorrente(posicao - 1);
-				int distancia_lider = TempoTotalDoConcorrente(posicao = 1) - tempo_total;			
+				posicao = concorrentesEmProva[i].GetPosicao();
+				numero = concorrentesEmProva[i].GetID();
+				nome = concorrentesEmProva[i].Getnome();
+				carro = concorrentesEmProva[i].GetCarro();
+				tempo_total = TempoTotalDoConcorrente(numero);
+				distancia_anterior = TempoTotalDoConcorrente(posicao) - TempoTotalDoConcorrente(posicao - 1);
+				distancia_lider = TempoTotalDoConcorrente(posicao = 1) - tempo_total;
+				tabela.Rows.Add(posicao, numero, nome, carro, tempo_total, distancia_anterior, distancia_lider);
+			}
+
+			//Imprimir a tabela
+			foreach (DataRow dataRow in tabela.Rows)
+			{
+				foreach (var i in dataRow.ItemArray)
+				{
+					Console.WriteLine(i);
 				}
-
-
 			}
 
 		}
+		//FIM (falta so adicionar a posicao_final de cada concorrente, e formatar os dados);
 
 
-
+		}
 
 	}
 
