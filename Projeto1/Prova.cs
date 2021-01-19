@@ -298,7 +298,7 @@ namespace Projeto1
 			int posicao, numero, tempo_total, distancia_anterior, distancia_lider;
 			string nome, carro;
 
-			foreach(int i in concorrentesEmProva.Keys)
+			foreach (int i in concorrentesEmProva.Keys)
             {
 				posicao = concorrentesEmProva[i].GetPosicao();
 				numero = concorrentesEmProva[i].GetID();
@@ -311,13 +311,24 @@ namespace Projeto1
 			}
 
 			//Imprimir a tabela
-			foreach (DataRow dataRow in tabela.Rows)
+
+			foreach (DataColumn column in tabela.Columns)
 			{
-				foreach (var i in dataRow.ItemArray)
-				{
-					Console.WriteLine(i);
-				}
+				Console.Write(" " + column);
+
 			}
+			Console.WriteLine();
+
+			foreach (DataRow datarow in tabela.Rows)
+			{
+				foreach(var item in datarow.ItemArray)
+                {
+					Console.Write(" " + item);
+                }
+				Console.WriteLine();
+			}
+
+
 
 		}
 		//FIM (falta so adicionar a posicao_final de cada concorrente, e formatar os dados);

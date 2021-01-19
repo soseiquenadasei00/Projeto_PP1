@@ -52,7 +52,7 @@ namespace Projeto1
 					Console.WriteLine("BRINCADEIRA VIU!! ERROU DE NOVO??? COLOCA O NOME CERTO PELO AMOR");
 				}
 				Console.WriteLine("\n");
-
+			
 				
 				Console.WriteLine("Verifique que não há nenhum erro, digite 0 para entrar no santuário!");
 				opc = int.Parse(Console.ReadLine());
