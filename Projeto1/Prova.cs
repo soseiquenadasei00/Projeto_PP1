@@ -369,20 +369,6 @@ namespace Projeto1
 				}
 		}
 
-		public void AtribuirDifAnt()
-        {
-			SortedDictionary<int, int> Coiso = new SortedDictionary<int, int>();
-			foreach (Concorrente c in concorrentesEmProva.Values)
-            {
-				foreach(int concorrenteid in ProvaValidaPor().Keys)
-                {
-					if c
-
-                }
-		
-					
-            }
-        }
 	
 		//FIM (falta so adicionar a posicao_final de cada concorrente, e formatar os dados);
 		public void TabelaClassificativa2()
