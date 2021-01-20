@@ -1,15 +1,19 @@
 ﻿using System;
+using System.Collections.Specialized;
+using System.Collections;
 using System.Collections.Generic;
 using System.Data;
+
 
 namespace Projeto1
 {
 	class Program
 	{
+		
+
 		static void Main(string[] args)
 		{
-
-		    Provas rally2 = new Provas();
+			Provas rally2 = new Provas();
 			int opc = 1;
 			Console.WriteLine("\t" + "\t" + "Competição de carros do EDJD");
 			Console.WriteLine("\n" + "\n");
@@ -59,6 +63,17 @@ namespace Projeto1
 				Console.Clear();
 			}
 
+			rally2.Podio();
+			rally2.AtribuirDifLid(rally2.Podio());
+			rally2.AtribuirDifAnt();
+			foreach (Concorrente c in rally2.concorrentesEmProva.Values)
+            {
+				Console.WriteLine(" {0}, {1}, {2} " ,c.GetPosF() , c.GetDifAnt(), c.GetDifLid());
+            }
+
+
+			rally2.TabelaClassificativa2();
+			return;
 
 			Console.WriteLine("\t" + "\t" + "Competição de carros do EDJD");
 			Console.WriteLine("\n" + "\n");

@@ -1,6 +1,9 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Data;
+
+
 
 namespace Projeto1
 {
@@ -9,7 +12,7 @@ namespace Projeto1
 		// Variaveis
 		//concorrenteID / concorrente
 		public Dictionary<int, Concorrente> concorrentesEmProva;
-		//numero da Etapa / etapa
+		//Designacao da Etapa / etapa
 		public Dictionary<string, Etapa> etapasDaProva;
 
 
@@ -290,16 +293,16 @@ namespace Projeto1
 			tabela.Columns.Add("Posicao");
 			tabela.Columns.Add("Numero");
 			tabela.Columns.Add("Nome");
-			tabela.Columns.Add("Carro");
-			tabela.Columns.Add("Tempo da prova");
-			tabela.Columns.Add("Diferenca Anterior");
-			tabela.Columns.Add("Diferenca Lider");
+			tabela.Columns.Add("Carro\t");
+			tabela.Columns.Add("Tempo da prova\t");
+			tabela.Columns.Add("Diferenca Anterior\t");
+			tabela.Columns.Add("Diferenca Lider\t");
 
 			int posicao, numero, tempo_total, distancia_anterior, distancia_lider;
 			string nome, carro;
 
 			foreach (int i in concorrentesEmProva.Keys)
-            {
+			{
 				posicao = concorrentesEmProva[i].GetPosicao();
 				numero = concorrentesEmProva[i].GetID();
 				nome = concorrentesEmProva[i].Getnome();
@@ -314,30 +317,111 @@ namespace Projeto1
 
 			foreach (DataColumn column in tabela.Columns)
 			{
-				Console.Write(" " + column);
+				Console.Write(column + "   ");
 
 			}
 			Console.WriteLine();
 
 			foreach (DataRow datarow in tabela.Rows)
 			{
-				foreach(var item in datarow.ItemArray)
-                {
-					Console.Write(" " + item);
-                }
+				foreach (var item in datarow.ItemArray)
+				{
+					Console.Write("   " + item + "\t");
+				}
 				Console.WriteLine();
+			}
+		}
+
+
+		public SortedList<int, Concorrente> Podio()
+		{
+			//TEMPO TOTAL POR CONCORRENTE
+			SortedList<int, Concorrente> Podio = new SortedList<int, Concorrente>();
+
+			foreach (int concorrenteID in concorrentesEmProva.Keys)
+			{
+				if (ConcorrenteComProvaValida(concorrenteID))
+				{
+					Podio.Add(TempoTotalDoConcorrente(concorrenteID), concorrentesEmProva[concorrenteID]);
+				}
+			}
+
+			foreach (Concorrente c in Podio.Values)
+			{
+				c.posicaoFinal = Podio.IndexOfValue(c) + 1;
 			}
 
 
 
+			return Podio;
 		}
+
+		public void AtribuirDifLid(SortedList<int,Concorrente> Podio)
+		{
+			foreach(int i in Podio.Keys)
+				if (i == TempoTotalDoConcorrente(Vencedor()))
+				{
+					Podio[i].difLid = 0;
+				}
+				else
+				{
+					Podio[i].difLid = TempoTotalDoConcorrente(Vencedor()) - TempoTotalDoConcorrente(Podio[i].concorrenteID);
+				}
+		}
+
+		public void AtribuirDifAnt()
+        {
+			SortedDictionary<int, int> Coiso = new SortedDictionary<int, int>();
+			foreach (Concorrente c in concorrentesEmProva.Values)
+            {
+				foreach(int concorrenteid in ProvaValidaPor().Keys)
+                {
+					if c
+
+                }
+		
+					
+            }
+        }
+	
 		//FIM (falta so adicionar a posicao_final de cada concorrente, e formatar os dados);
+		public void TabelaClassificativa2()
+        {
+			Console.WriteLine(" ___");
+			Console.WriteLine("|" + "Posição\t" + "|" + "\tNúmero\t" + "|" + "\tNome\t" + "|" + "\tCarro\t" + "|" + "\tTempo da Prova\t" + "|" + "\tDi. Ant.\t" + "|" + "\tDi.Ldr.\t" + "|");
+			Console.WriteLine(" ----------------------------------------------------------------------------------------------------------------------------------------------------");
+			foreach (int i in concorrentesEmProva.Keys)
+			{
+				//if (i < concorrentesEmProva.Count)
+				//{
+				//if (i != 0)
+				//{
+				Console.WriteLine("|" + "{0}" + "\t|\t" + "{1}" + "\t|\t" + "{2}" + "\t|\t" + "{3}" + "\t|\t" + "{4}" + "\t\t|\t" + "{5}" + "\t\t|\t" + "{6}" + "\t\t|", concorrentesEmProva[i].posicaoFinal, concorrentesEmProva[i].concorrenteID, concorrentesEmProva[i].nome, concorrentesEmProva[i].carro, TempoTotalDoConcorrente(concorrentesEmProva[i].concorrenteID), concorrentesEmProva[i].difAnt, concorrentesEmProva[i].difLid);
+				Console.WriteLine(" -----------------------------------------------------------------------------------------------------------------------------------------------");
+				//}
+				//else
+				//		{
+				//			Console.WriteLine("|\t" + "{0}" + "\t\t|\t" + "{1}" + "\t\t|\t" + "{2}" + "\t\t|\t" + "{3}" + "\t\t|\t" + "{4}" + "\t\t\t|\t" + "{5}" + "\t\t\t|\t" + "{6}" + "\t\t|\t", concorrentesEmProva[i].posicaoFinal, concorrentesEmProva[i].concorrenteID, concorrentesEmProva[i].nome, concorrentesEmProva[i].carro, TempoTotalDoConcorrente(concorrentesEmProva[i].concorrenteID), concorrentesEmProva[i].difAnt, concorrentesEmProva[i].difLid);
+				//			Console.WriteLine(" ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------");
+				//		}
+				//	}
+				//}
+				//for (int i = 0; i <concorrentesEmProva.Count; i++)
+				//{
+				//	if (!ConcorrenteComProvaValida(concorrentesEmProva[i].concorrenteID))
+				//	{
+				//		Console.WriteLine("|\t" + "   " + "\t\t|\t" + "{0}" + "\t\t|\t" + "{1}" + "\t\t|\t" + "{2}" + "\t\t|\t" + "   " + "\t\t\t|\t" + "   " + "\t\t\t|\t" + "   " + "\t\t|\t", 
+				//		Console.WriteLine(" ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------");
+				//	}
+				//}
 
-
+			}
 		}
+	
 
 	}
 
+}
 
 	
 	
