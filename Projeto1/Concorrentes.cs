@@ -40,22 +40,22 @@ namespace Projeto1
         }
 
         //Instancias
-        public int GetID () // devolve o numero do participante
+        public int GetID () 
         {
             return concorrenteID;
         }
     
-        public string Getnome () // Devolve o nome do participante 
+        public string Getnome ()  
         {
             return nome;
         }
 
-        public string GetCarro () // Devolve o nome do carro
+        public string GetCarro () 
         {
             return carro;
         }
 
-        public int GetPosicao() // Devolve posicao final 
+        public int GetPosicao() 
         {
             return posicaoFinal;
         }

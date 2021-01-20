@@ -27,7 +27,7 @@ namespace Projeto1
 				}
 				catch
 				{
-					Console.WriteLine("POXA PROFESSOR, PRECISA COLOCAR O NOME CERTO.");
+					Console.WriteLine("ERRO! Os concorrentes fugiram!");
 				}
 				Console.WriteLine("\n" + "\n");
 
@@ -40,7 +40,7 @@ namespace Projeto1
 				}
 				catch
 				{
-					Console.WriteLine("DE NOVO??? POXA PROFESSOR, PRECISA COLOCAR O NOME CERTO.");
+					Console.WriteLine("ERRO! E-tapa? E, Tapa? Nao encontrei");
 				}
 				Console.WriteLine("\n" + "\n");
 
@@ -53,7 +53,7 @@ namespace Projeto1
 				}
 				catch
 				{
-					Console.WriteLine("BRINCADEIRA VIU!! ERROU DE NOVO??? COLOCA O NOME CERTO PELO AMOR");
+					Console.WriteLine("ERROR! FILE TOO FAR TO REACH");
 				}
 				Console.WriteLine("\n");
 			
@@ -83,7 +83,7 @@ namespace Projeto1
 				Console.WriteLine("7 - Para saber quem foi o vencedor");
 				Console.WriteLine("8 - Para saber a velocidade média da prova");
 				Console.WriteLine("9 - Para ter acesso à tabela classificativa da prova");
-				Console.WriteLine("0 - Se estiver pronto para avaliar este grupo com a cotação máxima e sair do programa!");
+				Console.WriteLine("0 - Se estiver satisfeito com a prestacao deste muy nobre grupo de trabalho!");
 				op = int.Parse(Console.ReadLine());
 				switch (op)
 				{
@@ -99,37 +99,10 @@ namespace Projeto1
 						break;
 					case 3:
 						Console.Clear();
-						if (rally2.TempoDasEtapasParaProvasValidas().ContainsKey("P C")) Console.WriteLine("P C \t Tempo: " + rally2.TempoDasEtapasParaProvasValidas()["P C"]);
-						else
-						{
-							string s = ""; float tempo;
-							for (int i = 0; i < rally2.TempoDasEtapasParaProvasValidas().Count; i++)
-								{
-							if (i == 0)
-							{
-								Console.WriteLine("P E1 \t Tempo: " + rally2.TempoDasEtapasParaProvasValidas()["P E1"]);
-								rally2.TempoDasEtapasParaProvasValidas().Remove("P E1");
-								continue;
-							}
-							else if (rally2.TempoDasEtapasParaProvasValidas().Keys[i].Length == 4)
-							{
-								s = rally2.TempoDasEtapasParaProvasValidas().Keys[i];
-									rally2.TempoDasEtapasParaProvasValidas().RemoveAt(i);
-								continue;
-									//if (s[3] == 'C')
-									//{
-									//	s = rally2.TempoDasEtapasParaProvasValidas().Keys[i];
-									//	continue;
-									//}
-							}
-							else
-							{
-								Console.WriteLine("{0} \t Tempo: {1} ", rally2.TempoDasEtapasParaProvasValidas().Keys[i], rally2.TempoDasEtapasParaProvasValidas().Values[i]);
-								rally2.TempoDasEtapasParaProvasValidas().RemoveAt(i);
-							}
-						}
-								Console.WriteLine("{0} \t Tempo: {1} ", s, rally2.TempoDasEtapasParaProvasValidas()[s]);
-					}
+						foreach (int i in rally2.NumerarEtapas().Keys)
+                        {
+							Console.WriteLine("{0}\t Tempo medio: {1} ", rally2.NumerarEtapas()[i], rally2.TempoDasEtapasParaProvasValidas()[rally2.NumerarEtapas()[i]]);
+                        }
 						Console.WriteLine("\n" + "\n" + "\n");
 						break;
                     case 4:

@@ -23,7 +23,6 @@ namespace Projeto1
 		public string designacao;
 		//EX: "E1 E2" // "P E1" // "E2 C"
 
-
 		public float distancia;
 
 		// construtor 

@@ -139,8 +139,6 @@ namespace Projeto1
 			return ProvaValidaPor().Count;
 		}
 
-
-		//CHECKAR ISTO NO PAPEL, NAO TENHO A CERTEZA SE ESTE METODO RETORNA A LISTA POR ORDEM DE OCORRENCIA DAS ETAPAS!!!!!
 		// Alinea 5 - Apresentacao  das médias dos tempos por etapa e ordenado por ordem de ocorrência das etapas para provas validas.
 		//Nao seria possivel criar um metodo que retorna a media dos tempos de uma etapa para provas validas na classe etapa
 		//Pois, nao ha maneira de verificar, na classe etapa, se um concorrente tem ou nao a prova valida.
@@ -163,6 +161,46 @@ namespace Projeto1
 			}
 			return aux;
 		}
+
+		//Metodo que numera as etapas de forma a podermos apresenta-las em ordem de ocorrencia no ecra.
+		public Dictionary<int, string> NumerarEtapas()
+        {
+			Dictionary<int, string> EtapasNumeradas = new Dictionary<int, string>();
+			foreach (Etapa e in etapasDaProva.Values)
+            {
+				if (e.designacao == "P C") //se apenas existir uma etapa na prova, entao retornamos logo. Obviamente, esta etapa apenas pode ser "P C"
+				{
+					EtapasNumeradas.Add(0, "P C");
+					return EtapasNumeradas;
+				} 
+				else
+                {
+					if(e.designacao == "P E1") //Caso contrario, esperamos o foreach inteiro e adicionamos unicamente a primeira etapa
+                    {
+						if (!EtapasNumeradas.ContainsValue(e.designacao)) EtapasNumeradas.Add(EtapasNumeradas.Count, e.designacao);
+					}
+                }
+            }
+
+			foreach (Etapa e in etapasDaProva.Values) //Depois, enquanto nao aparecer a etapa que tem como ponto final 'C', adicionamos etapas a nossa lista.
+            {
+				if (e.designacao[3] != 'C')
+                {
+					if (!EtapasNumeradas.ContainsValue(e.designacao)) EtapasNumeradas.Add(EtapasNumeradas.Count, e.designacao);
+				}
+            }
+
+			foreach (Etapa e in etapasDaProva.Values) //Finalmente, quando apenas restar uma etapa, esta apenas poderia acacar com 'C', entao, adicionamos ela na lista.
+			{
+				if (e.designacao[3] == 'C')
+				{
+					if (!EtapasNumeradas.ContainsValue(e.designacao)) EtapasNumeradas.Add(EtapasNumeradas.Count, e.designacao);
+				}
+			}
+			return EtapasNumeradas;
+
+		}
+
 
 		// Alinea 6  - Apresentação do carro mais rápido / mais lento a efetuar uma prova válida;
 		public string CarroMaisRapido()
@@ -284,12 +322,13 @@ namespace Projeto1
 
 		}
 
-
-		public void AtribuirPosF()
+		//Utilizamos o Metodo que nos retorna uma lista em Ordem descrescente de tempo de todos os concorrentes que efeturam uma prova valida.
+		//Dessa forma conseguimos ir atribuindo as posicoes finais aos concorrentes por ordem descrescente. Confusingly but workingly!
+		public void AtribuirPosF() 
 		{
 			foreach (int concorrenteID in ProvaValidaPorInversa().Values)
 			{
-				concorrentesEmProva[concorrenteID].posicaoFinal = ProvaValidaPorInversa().IndexOfValue(concorrenteID) + 1;
+				concorrentesEmProva[concorrenteID].posicaoFinal = ProvaValidaPorInversa().IndexOfValue(concorrenteID) + ProvaValidaPorInversa().Count-1;
 			}
 		}
 
@@ -301,6 +340,7 @@ namespace Projeto1
             }
 		}
 
+		//Para cada concorrente p, comparamos com um concorrente c. Se p estiver uma posicao acima de c, o tempo de c sera o tempo de p menos o tempo de c.
         public void AtribuirDifAnt()
         {
            foreach(Concorrente c in concorrentesEmProva.Values)
@@ -313,13 +353,15 @@ namespace Projeto1
                     }
                 }
            }
-		   foreach (Concorrente c in concorrentesEmProva.Values)
+		   foreach (Concorrente c in concorrentesEmProva.Values) //Zera-se a diferenca de tempo para o anterior caso o concorrente seja o vencedor.
            {
 				if (c.concorrenteID == Vencedor()) c.difAnt = 0;
            }
 
         }
 
+
+		//Metodo importante para termos acesso aos concorrentes de forma ordenada pela posicao final, utilizamos este metodo para construir a tabela.
 		public SortedList<int, Concorrente> Podio(){
 
 			SortedList<int, Concorrente> podio = new SortedList<int, Concorrente>();
@@ -333,6 +375,8 @@ namespace Projeto1
 			}
 			return podio;
 		}
+
+		//Outro metodo para construir a tabela, desta vez, listamos todos os concorrente que nao possuem prova valida e temos entao uma lista para podermo acessa-los facilmente.
 		public List<Concorrente> ConcorrentesInvalidos()
         {
 			List<Concorrente> aux = new List<Concorrente>();
