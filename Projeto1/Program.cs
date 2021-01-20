@@ -63,17 +63,10 @@ namespace Projeto1
 				Console.Clear();
 			}
 
-			rally2.Podio();
+			rally2.AtribuirPosF();
 			rally2.AtribuirDifLid();
 			rally2.AtribuirDifAnt();
-			foreach (Concorrente c in rally2.concorrentesEmProva.Values)
-            {
-				Console.WriteLine(" {0}, {1}, {2} " ,c.GetPosF() , c.GetDifAnt(), c.GetDifLid());
-            }
-
-
-			rally2.TabelaClassificativa2();
-			return;
+			rally2.ConcorrentesInvalidos();
 
 			Console.WriteLine("\t" + "\t" + "Competição de carros do EDJD");
 			Console.WriteLine("\n" + "\n");
@@ -93,23 +86,50 @@ namespace Projeto1
 				Console.WriteLine("0 - Se estiver pronto para avaliar este grupo com a cotação máxima e sair do programa!");
 				op = int.Parse(Console.ReadLine());
 				switch (op)
-                {
-                    case 1:
+				{
+					case 1:
 						Console.Clear();
-                        Console.WriteLine("Numero de concorrentes em prova: {0}" + "\n" + "Numero de provas validas: {1}", rally2.NumeroConcorrentesEmProva(), rally2.NumeroDeProvasValidas());
+						Console.WriteLine("Numero de concorrentes em prova: {0}" + "\n" + "Numero de provas validas: {1}", rally2.NumeroConcorrentesEmProva(), rally2.NumeroDeProvasValidas());
 						Console.WriteLine("\n" + "\n" + "\n");
 						break;
-                    case 2:
+					case 2:
 						Console.Clear();
 						rally2.printTempoDecre();
 						Console.WriteLine("\n" + "\n" + "\n");
 						break;
-                    case 3:
+					case 3:
 						Console.Clear();
-						for (int i = 0; i < rally2.TempoDasEtapasParaProvasValidas().Count; i++)
+						if (rally2.TempoDasEtapasParaProvasValidas().ContainsKey("P C")) Console.WriteLine("P C \t Tempo: " + rally2.TempoDasEtapasParaProvasValidas()["P C"]);
+						else
 						{
-							Console.WriteLine(rally2.TempoDasEtapasParaProvasValidas().Keys[i] + ": " + rally2.TempoDasEtapasParaProvasValidas().Values[i]);
-                        }
+							string s = ""; float tempo;
+							for (int i = 0; i < rally2.TempoDasEtapasParaProvasValidas().Count; i++)
+								{
+							if (i == 0)
+							{
+								Console.WriteLine("P E1 \t Tempo: " + rally2.TempoDasEtapasParaProvasValidas()["P E1"]);
+								rally2.TempoDasEtapasParaProvasValidas().Remove("P E1");
+								continue;
+							}
+							else if (rally2.TempoDasEtapasParaProvasValidas().Keys[i].Length == 4)
+							{
+								s = rally2.TempoDasEtapasParaProvasValidas().Keys[i];
+									rally2.TempoDasEtapasParaProvasValidas().RemoveAt(i);
+								continue;
+									//if (s[3] == 'C')
+									//{
+									//	s = rally2.TempoDasEtapasParaProvasValidas().Keys[i];
+									//	continue;
+									//}
+							}
+							else
+							{
+								Console.WriteLine("{0} \t Tempo: {1} ", rally2.TempoDasEtapasParaProvasValidas().Keys[i], rally2.TempoDasEtapasParaProvasValidas().Values[i]);
+								rally2.TempoDasEtapasParaProvasValidas().RemoveAt(i);
+							}
+						}
+								Console.WriteLine("{0} \t Tempo: {1} ", s, rally2.TempoDasEtapasParaProvasValidas()[s]);
+					}
 						Console.WriteLine("\n" + "\n" + "\n");
 						break;
                     case 4:
@@ -143,7 +163,7 @@ namespace Projeto1
 						break;
                     case 9:
 						Console.Clear();
-						rally2.TabelaClassificativa();
+						rally2.TabelaClassificativa2();
 						Console.WriteLine("\n" + "\n" + "\n");
 						break;
 					case 0:

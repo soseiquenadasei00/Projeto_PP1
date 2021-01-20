@@ -285,72 +285,12 @@ namespace Projeto1
 		}
 
 
-		//Tabela Classificativa - Alínea 10
-		public void TabelaClassificativa()
+		public void AtribuirPosF()
 		{
-			DataTable tabela = new DataTable();
-			tabela.Columns.Add("Posicao");
-			tabela.Columns.Add("Numero");
-			tabela.Columns.Add("Nome");
-			tabela.Columns.Add("Carro\t");
-			tabela.Columns.Add("Tempo da prova\t");
-			tabela.Columns.Add("Diferenca Anterior\t");
-			tabela.Columns.Add("Diferenca Lider\t");
-
-			int posicao, numero, tempo_total, distancia_anterior, distancia_lider;
-			string nome, carro;
-
-			foreach (int i in concorrentesEmProva.Keys)
+			foreach (int concorrenteID in ProvaValidaPorInversa().Values)
 			{
-				posicao = concorrentesEmProva[i].GetPosicao();
-				numero = concorrentesEmProva[i].GetID();
-				nome = concorrentesEmProva[i].Getnome();
-				carro = concorrentesEmProva[i].GetCarro();
-				tempo_total = TempoTotalDoConcorrente(numero);
-				distancia_anterior = TempoTotalDoConcorrente(posicao) - TempoTotalDoConcorrente(posicao - 1);
-				distancia_lider = TempoTotalDoConcorrente(posicao = 1) - tempo_total;
-				tabela.Rows.Add(posicao, numero, nome, carro, tempo_total, distancia_anterior, distancia_lider);
+				concorrentesEmProva[concorrenteID].posicaoFinal = ProvaValidaPorInversa().IndexOfValue(concorrenteID) + 1;
 			}
-
-			//Imprimir a tabela
-
-			foreach (DataColumn column in tabela.Columns)
-			{
-				Console.Write(column + "   ");
-
-			}
-			Console.WriteLine();
-
-			foreach (DataRow datarow in tabela.Rows)
-			{
-				foreach (var item in datarow.ItemArray)
-				{
-					Console.Write("   " + item + "\t");
-				}
-				Console.WriteLine();
-			}
-		}
-
-
-		public SortedList<int, Concorrente> Podio()
-		{
-			//C
-			SortedList<int, Concorrente> Podio = new SortedList<int, Concorrente>();
-
-			foreach (int concorrenteID in concorrentesEmProva.Keys)
-			{
-				if (ConcorrenteComProvaValida(concorrenteID))
-				{
-					if(Vencedor() == concorrenteID) Podio.Add(concorrenteID, concorrentesEmProva[concorrenteID]);
-					Podio.Add(concorrenteID, concorrentesEmProva[concorrenteID]);
-				}
-			}
-
-			foreach (Concorrente c in Podio.Values)
-			{
-				c.posicaoFinal = Podio.IndexOfValue(c) + 1;
-			}
-			return Podio;
 		}
 
 		public void AtribuirDifLid()
@@ -369,50 +309,66 @@ namespace Projeto1
                 {
 					if (p.posicaoFinal == c.posicaoFinal - 1)
                     {
-						p.difAnt = TempoTotalDoConcorrente(c.concorrenteID) - TempoTotalDoConcorrente(p.concorrenteID);
+						c.difAnt = TempoTotalDoConcorrente(p.concorrenteID) - (TempoTotalDoConcorrente(c.concorrenteID));
                     }
                 }
            }
+		   foreach (Concorrente c in concorrentesEmProva.Values)
+           {
+				if (c.concorrenteID == Vencedor()) c.difAnt = 0;
+           }
+
+        }
+
+		public SortedList<int, Concorrente> Podio(){
+
+			SortedList<int, Concorrente> podio = new SortedList<int, Concorrente>();
+			foreach(Concorrente c in concorrentesEmProva.Values)
+            {
+				if (c.posicaoFinal == 1) podio.Add(c.posicaoFinal, c);
+            }
+			foreach (Concorrente c in concorrentesEmProva.Values)
+			{
+				if (c.posicaoFinal == podio.Count + 1) podio.Add(c.posicaoFinal, c);
+			}
+			return podio;
+		}
+		public List<Concorrente> ConcorrentesInvalidos()
+        {
+			List<Concorrente> aux = new List<Concorrente>();
+
+			foreach(Concorrente c in concorrentesEmProva.Values)
+            {
+				if (!ConcorrenteComProvaValida(c.concorrenteID)) aux.Add(c);
+            }
+			return aux;
         }
 
 
         //FIM (falta so adicionar a posicao_final de cada concorrente, e formatar os dados);
         public void TabelaClassificativa2()
         {
-			Console.WriteLine(" ___");
-			Console.WriteLine("|" + "Posição\t" + "|" + "\tNúmero\t" + "|" + "\tNome\t" + "|" + "\tCarro\t" + "|" + "\tTempo da Prova\t" + "|" + "\tDi. Ant.\t" + "|" + "\tDi.Ldr.\t" + "|");
-			Console.WriteLine(" ----------------------------------------------------------------------------------------------------------------------------------------------------");
-			foreach (int i in concorrentesEmProva.Keys)
+
+			AtribuirPosF();
+			AtribuirDifLid();
+			AtribuirDifAnt();
+			List<Concorrente> aux = ConcorrentesInvalidos();
+			Console.WriteLine(" ________________________________________________________________________________________________________");
+			Console.WriteLine("|" +  " Posição " + "|" + "  Número  " + "|" + "   Nome   " + "|" + "Carro" + "\t\t|\t" + "Tempo da Prova" + "\t|\t" + "Di. Ant." + "|" + "   Di.Ldr." + "\t|");
+			Console.WriteLine(" -------------------------------------------------------------------------------------------------------");
+			foreach (int i in Podio().Keys)
 			{
-				//if (i < concorrentesEmProva.Count)
-				//{
-				//if (i != 0)
-				//{
-				Console.WriteLine("|" + "{0}" + "\t|\t" + "{1}" + "\t|\t" + "{2}" + "\t|\t" + "{3}" + "\t|\t" + "{4}" + "\t\t|\t" + "{5}" + "\t\t|\t" + "{6}" + "\t\t|", concorrentesEmProva[i].posicaoFinal, concorrentesEmProva[i].concorrenteID, concorrentesEmProva[i].nome, concorrentesEmProva[i].carro, TempoTotalDoConcorrente(concorrentesEmProva[i].concorrenteID), concorrentesEmProva[i].difAnt, concorrentesEmProva[i].difLid);
-				Console.WriteLine(" -----------------------------------------------------------------------------------------------------------------------------------------------");
-				//}
-				//else
-				//		{
-				//			Console.WriteLine("|\t" + "{0}" + "\t\t|\t" + "{1}" + "\t\t|\t" + "{2}" + "\t\t|\t" + "{3}" + "\t\t|\t" + "{4}" + "\t\t\t|\t" + "{5}" + "\t\t\t|\t" + "{6}" + "\t\t|\t", concorrentesEmProva[i].posicaoFinal, concorrentesEmProva[i].concorrenteID, concorrentesEmProva[i].nome, concorrentesEmProva[i].carro, TempoTotalDoConcorrente(concorrentesEmProva[i].concorrenteID), concorrentesEmProva[i].difAnt, concorrentesEmProva[i].difLid);
-				//			Console.WriteLine(" ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------");
-				//		}
-				//	}
-				//}
-				//for (int i = 0; i <concorrentesEmProva.Count; i++)
-				//{
-				//	if (!ConcorrenteComProvaValida(concorrentesEmProva[i].concorrenteID))
-				//	{
-				//		Console.WriteLine("|\t" + "   " + "\t\t|\t" + "{0}" + "\t\t|\t" + "{1}" + "\t\t|\t" + "{2}" + "\t\t|\t" + "   " + "\t\t\t|\t" + "   " + "\t\t\t|\t" + "   " + "\t\t|\t", 
-				//		Console.WriteLine(" ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------");
-				//	}
-				//}
-
+				
+				Console.WriteLine("|" + "   {0}   " + "  |" + "    {1}     " + "|" + " {2} " + "\t|" + "{3}" + "\t\t|\t" + "{4}" + "\t\t|\t" + "{5}" + "\t|\t" + "{6}" + "\t|", Podio()[i].posicaoFinal, Podio()[i].concorrenteID, Podio()[i].nome, Podio()[i].carro, TempoTotalDoConcorrente(Podio()[i].concorrenteID), Podio()[i].difAnt, Podio()[i].difLid);
+				Console.WriteLine(" -------------------------------------------------------------------------------------------------------");
 			}
-		}
-	
-
+            foreach(Concorrente c in ConcorrentesInvalidos())
+            {
+				Console.WriteLine("|" + "  ---  " + "  |" + "    {0}     " + "|" + " {1} " + "\t|" + "{2}" + "\t\t|\t" + "---" + "\t\t|\t" + "---" + "\t|\t" + "---" + "\t|", c.concorrenteID, c.nome, c.carro);
+				Console.WriteLine(" -------------------------------------------------------------------------------------------------------");
+            }
+        }
 	}
-
 }
 
 	

@@ -28,6 +28,7 @@ namespace Projeto1
             this.posicaoFinal = 0;
             this.difAnt = 0;
             this.difLid = 0;
+            this.tempototal = 0;
         }
 
         public void MostrarConcorrente()
