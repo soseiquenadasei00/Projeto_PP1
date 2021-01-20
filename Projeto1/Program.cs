@@ -64,7 +64,8 @@ namespace Projeto1
 			}
 
 			rally2.Podio();
-			rally2.AtribuirDifLid(rally2.Podio());
+			rally2.AtribuirDifLid();
+			rally2.AtribuirDifAnt();
 			foreach (Concorrente c in rally2.concorrentesEmProva.Values)
             {
 				Console.WriteLine(" {0}, {1}, {2} " ,c.GetPosF() , c.GetDifAnt(), c.GetDifLid());

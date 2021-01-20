@@ -15,6 +15,7 @@ namespace Projeto1
         public int posicaoFinal;
         public int difAnt;
         public int difLid;
+        public int tempototal;
 
 
 

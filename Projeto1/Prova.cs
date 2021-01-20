@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections;
 using System.Collections.Generic;
 using System.Data;
 
@@ -335,14 +334,15 @@ namespace Projeto1
 
 		public SortedList<int, Concorrente> Podio()
 		{
-			//TEMPO TOTAL POR CONCORRENTE
+			//C
 			SortedList<int, Concorrente> Podio = new SortedList<int, Concorrente>();
 
 			foreach (int concorrenteID in concorrentesEmProva.Keys)
 			{
 				if (ConcorrenteComProvaValida(concorrenteID))
 				{
-					Podio.Add(TempoTotalDoConcorrente(concorrenteID), concorrentesEmProva[concorrenteID]);
+					if(Vencedor() == concorrenteID) Podio.Add(concorrenteID, concorrentesEmProva[concorrenteID]);
+					Podio.Add(concorrenteID, concorrentesEmProva[concorrenteID]);
 				}
 			}
 
@@ -350,28 +350,34 @@ namespace Projeto1
 			{
 				c.posicaoFinal = Podio.IndexOfValue(c) + 1;
 			}
-
-
-
 			return Podio;
 		}
 
-		public void AtribuirDifLid(SortedList<int,Concorrente> Podio)
+		public void AtribuirDifLid()
 		{
-			foreach(int i in Podio.Keys)
-				if (i == TempoTotalDoConcorrente(Vencedor()))
-				{
-					Podio[i].difLid = 0;
-				}
-				else
-				{
-					Podio[i].difLid = TempoTotalDoConcorrente(Vencedor()) - TempoTotalDoConcorrente(Podio[i].concorrenteID);
-				}
+			foreach (Concorrente c in concorrentesEmProva.Values)
+            {
+				c.difLid = TempoTotalDoConcorrente(Vencedor()) - TempoTotalDoConcorrente(c.concorrenteID);
+            }
 		}
 
-	
-		//FIM (falta so adicionar a posicao_final de cada concorrente, e formatar os dados);
-		public void TabelaClassificativa2()
+        public void AtribuirDifAnt()
+        {
+           foreach(Concorrente c in concorrentesEmProva.Values)
+           {
+				foreach(Concorrente p in concorrentesEmProva.Values)
+                {
+					if (p.posicaoFinal == c.posicaoFinal - 1)
+                    {
+						p.difAnt = TempoTotalDoConcorrente(c.concorrenteID) - TempoTotalDoConcorrente(p.concorrenteID);
+                    }
+                }
+           }
+        }
+
+
+        //FIM (falta so adicionar a posicao_final de cada concorrente, e formatar os dados);
+        public void TabelaClassificativa2()
         {
 			Console.WriteLine(" ___");
 			Console.WriteLine("|" + "Posição\t" + "|" + "\tNúmero\t" + "|" + "\tNome\t" + "|" + "\tCarro\t" + "|" + "\tTempo da Prova\t" + "|" + "\tDi. Ant.\t" + "|" + "\tDi.Ldr.\t" + "|");
