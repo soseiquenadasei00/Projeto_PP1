@@ -369,6 +369,19 @@ namespace Projeto1
 				}
 		}
 
+		public void AtribuirDifAnt(SortedList<int, Concorrente> Podio)
+		{
+			int aux;
+			foreach (int i in Podio.Keys)
+			{
+				foreach (Concorrente c in concorrentesEmProva.Values)
+				{
+					aux = c.GetPosicao();
+					Podio[i].difAnt = TempoTotalDoConcorrente(aux + 1) - TempoTotalDoConcorrente(aux);
+				}
+			}
+		}
+        
 	
 		//FIM (falta so adicionar a posicao_final de cada concorrente, e formatar os dados);
 		public void TabelaClassificativa2()
