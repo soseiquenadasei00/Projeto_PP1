@@ -19,54 +19,61 @@ namespace Projeto1
 			Console.WriteLine("\n" + "\n");
 			while (opc != 0)
 			{
-				Console.WriteLine("Por favor, introduza o nome do ficheiro com os concorrentes");
-				string ficheirosconcorrentes = Console.ReadLine();
-				try
+				int concorrentes = 0;
+				int etapas = 0;
+				int distancias = 0;
+				while (concorrentes == 0)
 				{
-					Interface.LerConcorrentes(rally2, ficheirosconcorrentes);
+					Console.WriteLine("Por favor, introduza o nome do ficheiro com os concorrentes");
+					string ficheirosconcorrentes = Console.ReadLine();
+					try
+					{
+						Interface.LerConcorrentes(rally2, ficheirosconcorrentes);
+						concorrentes = 1;
+					}
+					catch
+					{
+						Console.WriteLine("ERRO! Os concorrentes fugiram!");
+					}
+					Console.WriteLine("\n" + "\n");
 				}
-				catch
-				{
-					Console.WriteLine("ERRO! Os concorrentes fugiram!");
-				}
-				Console.WriteLine("\n" + "\n");
 
+				while (etapas == 0)
+				{
+					Console.WriteLine("Por favor, introduza o nome do ficheiro com as etapas");
+					string ficheirodasetapas = Console.ReadLine();
+					try
+					{
+						Interface.LerEtapas(rally2, ficheirodasetapas);
+						etapas = 1;
+					}
+					catch
+					{
+						Console.WriteLine("ERRO! E-tapa? E, Tapa? Nao encontrei");
+					}
+					Console.WriteLine("\n" + "\n");
+				}
 
-				Console.WriteLine("Por favor, introduza o nome do ficheiro com as etapas");
-				string ficheirodasetapas = Console.ReadLine();
-				try
+				while (distancias == 0)
 				{
-					Interface.LerEtapas(rally2, ficheirodasetapas);
+					Console.WriteLine("Por favor, introduza o nome do ficheiro com as distancias");
+					string ficheirodasdistancias = Console.ReadLine();
+					try
+					{
+						Interface.LerDistancias(rally2, ficheirodasdistancias);
+						distancias = 1;
+					}
+					catch
+					{
+						Console.WriteLine("ERROR! FILE TOO FAR TO REACH");
+					}
+					Console.WriteLine("\n");
 				}
-				catch
-				{
-					Console.WriteLine("ERRO! E-tapa? E, Tapa? Nao encontrei");
-				}
-				Console.WriteLine("\n" + "\n");
-
-
-				Console.WriteLine("Por favor, introduza o nome do ficheiro com as distancias");
-				string ficheirodasdistancias = Console.ReadLine();
-				try
-				{
-					Interface.LerDistancias(rally2, ficheirodasdistancias);
-				}
-				catch
-				{
-					Console.WriteLine("ERROR! FILE TOO FAR TO REACH");
-				}
-				Console.WriteLine("\n");
-			
 				
 				Console.WriteLine("Verifique que não há nenhum erro, digite 0 para entrar no santuário!");
 				opc = int.Parse(Console.ReadLine());
 				Console.Clear();
 			}
-
-			rally2.AtribuirPosF();
-			rally2.AtribuirDifLid();
-			rally2.AtribuirDifAnt();
-			rally2.ConcorrentesInvalidos();
 
 			Console.WriteLine("\t" + "\t" + "Competição de carros do EDJD");
 			Console.WriteLine("\n" + "\n");
@@ -148,7 +155,7 @@ namespace Projeto1
                 }
             } while (op != 0);
 
-			Console.WriteLine("Esperamos que o entediante trabalho de avaliar trabalhos tenha sido menos monótono!" + "\n" + "Até ao próximo semestre, professor!");
+			Console.WriteLine("\n\n \tEsperamos que o entediante trabalho de avaliar trabalhos tenha sido menos monótono!" + "\n" + "Até ao próximo semestre, professor!");
             return;
 
 		}
